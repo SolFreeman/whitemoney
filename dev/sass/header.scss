@@ -645,8 +645,6 @@
 	}
 }
 
-
-
 .nav-opener {
 	position: relative;
 	border: none;
@@ -673,8 +671,6 @@
 		transition: all ease-in-out 0.3s;
 	}
 
-	// Бургер 24×16, центрирован в кнопке 24×24
-	// Отступ: (24 - 16) / 2 = 4px
 	&:before {
 		top: 4px;
 	}
@@ -685,6 +681,25 @@
 
 	&:after {
 		bottom: 4px;
+	}
+}
+
+.mobile-social {
+	display: flex;
+	justify-content: center;
+	gap: 24px;
+	margin-top: 40px;
+
+	li {
+		padding: 0;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	@include media(">=1320px") {
+		display: none;
 	}
 }
 

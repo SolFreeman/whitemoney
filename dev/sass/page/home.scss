@@ -275,7 +275,7 @@
 
 /* services */
 .services {
-	padding: 60px 0;
+	// padding: 60px 0;
 
 	.services__header {
 		display: flex;
@@ -517,8 +517,11 @@
 
 /* review slider */
 .reviews {
-	padding: 40px 0 0;
 	position: relative;
+	
+	@include media(">=tablet") {
+		padding: 40px 0 0;
+	}
 
 	.container {
 		max-width: 1420px;
@@ -535,6 +538,7 @@
 		top: 0;
 		transform: translateX(-50%);
 		display: none;
+
 		@include media(">=tablet") {
 			display: block;
 		}
@@ -697,7 +701,7 @@
 .btn--gray {
 	background-color: #63718c;
 	color: #fff;
-	padding: 20px 45px;
+	padding: 16px 44px;
 	border-radius: 8px;
 	border: none;
 	cursor: pointer;
@@ -708,6 +712,10 @@
 	&:hover {
 		background-color: #ecf1f8;
 		color: $color;
+	}
+
+	@include media(">=tablet") {
+		padding: 20px 44px;
 	}
 }
 
@@ -827,7 +835,7 @@
 /* news slider */
 
 .news {
-    padding: 80px 0;
+    padding: 40px 0;
     background-color: #ECF1F8;
 
 	.swiper-wrapper {
@@ -1304,62 +1312,6 @@
 		width: 100%;
 	}
 }
-
-// .reviews {
-// 	background-position: 0 100%;
-// 	background-repeat: no-repeat;
-// 	padding-top: 40px;
-// 	position: relative;
-
-// 	.container {
-// 		max-width: 1420px;
-// 	}
-
-// 	&__row {
-// 		position: relative;
-// 		top: -50px;
-
-// 		@include media(">=tablet") {
-// 			margin: 0 -14px;
-// 			top: -100px;
-// 		}
-// 	}
-
-// 	&__col {
-// 		margin-bottom: 50px;
-// 		padding: 0;
-// 		max-width: 514px;
-// 		width: 100%;
-
-// 		@include media(">=tablet") {
-// 			vertical-align: top;
-// 			break-inside: avoid;
-// 			padding: 0 14px;
-// 			margin: 0 0 50px;
-// 		}
-
-// 		.our-happy__blockquote {
-// 			background-color: #fff;
-// 			height: auto;
-
-// 			.text-holder {
-// 				max-height: 230px;
-// 			}
-// 		}
-
-// 		.text-holder {
-// 			max-height: none !important;
-
-// 			p {
-// 				margin-bottom: 20px;
-// 			}
-// 		}
-
-// 		.read-more {
-// 			display: none;
-// 		}
-// 	}
-// }
 
 .fancybox-close-small {
 	background-color: #fff;
