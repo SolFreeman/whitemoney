@@ -1,0 +1,698 @@
+// ─────────────────────────────────────────
+// Variables
+// ─────────────────────────────────────────
+
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-info: var(--color-text-info);
+
+$color-bg-primary: var(--color-background-primary);
+$color-bg-secondary: var(--color-background-secondary);
+
+$color-border-tertiary: var(--color-border-tertiary);
+$color-border-secondary: var(--color-border-secondary);
+$color-border-primary: var(--color-border-primary);
+
+$radius-md: var(--border-radius-md);
+$radius-lg: var(--border-radius-lg);
+
+$breakpoint-sm: 640px;
+
+$color-up: #16a34a;
+$color-down: #dc2626;
+
+// ─────────────────────────────────────────
+// Mixins
+// ─────────────────────────────────────────
+@mixin card {
+	border: 0.5px solid $color-border-tertiary;
+	border-radius: $radius-lg;
+	background: $color-bg-primary;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+}
+
+@mixin text-sm {
+	font-size: 13px;
+	color: $color-text-secondary;
+}
+
+.cx {
+
+	font-family: $font-primary;
+	// ── Title ──────────────────────────────
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		color: $color-text-primary;
+		margin-bottom: 20px;
+		line-height: 1.2;
+
+		@include media(">=tablet") {
+			margin-bottom: 30px;
+		}
+	}
+
+	// ── Tabs ───────────────────────────────
+	&__tabs {
+		display: flex;
+		gap: 10px;
+		margin-bottom: 20px;
+		border-radius: $radius-md;
+
+		@include media(">=tablet") {
+			margin-bottom: 25px; 
+		}
+	}
+
+	&__tab {
+		flex: 1;
+		padding: 9px 8px;
+		font-size: 15px;
+		cursor: pointer;
+		border: none;
+		background: none;
+		color: $color;
+		border-radius: 8px;
+		transition: all 0.15s;
+		overflow: hidden;
+		font-family: $font-primary;
+
+		&--active {
+			background: #63718C;
+			color: $white;
+			font-weight: 500;
+			border: 0.5px solid $color-border-tertiary;
+		}
+
+		@include media(">=tablet") {
+			gap: 20px;
+			font-size: 18px;
+			padding: 12px 13px;
+		}
+	}
+
+	// ── Layout ─────────────────────────────
+	&__layout {
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+
+		@media (min-width: $breakpoint-sm) {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 40px;
+		}
+	}
+
+	// ── Rates column ───────────────────────
+	&__rates-col {
+		flex: 1;
+		min-width: 0;
+	}
+
+	// ── Tab panels ─────────────────────────
+	&__panel {
+		display: none;
+
+		&--active {
+			display: block;
+		}
+	}
+
+	&__rate-cell {
+		&:nth-of-type(2) {
+			display: none;
+
+			@include media(">=tablet") {
+				display: block;
+			}
+		}
+	}
+
+	// ── Column header ──────────────────────
+	&__col-header {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		padding: 11px 8px;
+		border-radius: 8px 8px 0 0;
+		margin-bottom: 4px;
+		color: #63718C;
+		background-color: #ECF1F8;
+
+		span {
+			@include text-sm;
+			font-size: 16px;
+			line-height: 1;
+
+			&:nth-of-type(2) {
+				display: none;
+
+				@include media(">=tablet") {
+					display: block;
+				}
+			}
+		}
+
+		@include media(">=tablet") {
+			padding: 20px 16px;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+
+	// ── Currency row ───────────────────────
+	&__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		align-items: center;
+		padding: 16px 8px;
+		line-height: 1.5;
+		border-radius: $radius-md;
+		// border: 0.5px solid $color-border-tertiary;
+		// background: $color-bg-primary;
+		transition: border-color 0.15s;
+
+		@include media(">=tablet") {
+			padding: 24px 16px;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+
+		&:hover {
+		}
+
+		&:nth-of-type(even) {
+			background-color: #ECF1F8;
+		}
+
+		&:nth-of-type(4) {
+			border-radius: 0 0 8px 8px
+		}
+
+		&-left {
+			@include flex-center;
+			gap: 5px;
+			min-width: 0;
+ 
+			@include media(">=tablet") {
+				gap: 16px;
+			}
+			
+		}
+
+		&-info {
+			min-width: 0;
+		}
+	}
+
+	// ── Currency meta ──────────────────────
+	&__code {
+		font-size: 20px;
+		line-height: 1.5;  
+		font-weight: 500;
+		color: $blue;
+
+		@include media(">=tablet") {
+			font-size: 24px;
+			line-height: 1;
+		}
+	}
+ 
+	&__name {
+		font-size: 18px;
+		color: #38393A;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	// ── Rate cell ──────────────────────────
+	&__rate-cell {
+	}
+
+	&__rate-val {
+		font-size: 22px;
+		font-weight: 500;
+		color: $color;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+
+		@include media(">=tablet") {
+			font-size: 24px;
+			line-height: 1;
+		}
+	}
+
+	&__arrow {
+		width: 14px;
+		height: 14px;
+
+		&--up {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 5.01792H5.6V13.9699L8.414 14V5.01792H14L7 0L0 5.01792Z' fill='%23216C58'/%3e%3c/svg%3e ");
+		}
+		&--down {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M14 8.98208H8.4L8.4 0.0301094L5.586 0L5.586 8.98208L0 8.98208L7 14L14 8.98208Z' fill='%23F95B2B'/%3e%3c/svg%3e ");
+		}
+	}
+
+	// ── Flag ───────────────────────────────
+	&__flag {
+		width: 20px;
+		height: 14px;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+
+	// ── Extra rows (expand) ────────────────
+	&__extra {
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+		max-height: 0;
+	}
+
+	// ── More button ────────────────────────
+
+	&__more-btn {
+		font-size: 13px;
+		color: $blue;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		transition: background 0.15s;
+		font-weight: 500;
+		font-size: 16px;
+		border: none;
+		padding: 0;
+		background: none;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&__chevron {
+		font-size: 10px;
+		transition: transform 0.2s;
+
+		&--open {
+			transform: rotate(180deg);
+		}
+	}
+
+	// ── Updated timestamp ──────────────────
+	&__updated {
+		font-size: 15px;
+		line-height: 1.3;
+		color: #38393A;
+		text-align: left;
+		max-width: 50%;
+
+		@include media(">=tablet") {
+			font-size: 16px;
+			max-width: 100%;
+		}
+	}
+
+	.bottom-info {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 20px;
+		align-items: center;
+	}
+
+	#tab1,
+	#tab2 {
+		.bottom-info {
+			justify-content: flex-end;
+		}	
+	}
+}
+
+// ─────────────────────────────────────────
+// Converter card
+// ─────────────────────────────────────────
+.conv {
+	width: 100%;
+	background: url(assets/img/bg_exchange.jpg);
+	background-size: cover;
+	border-radius: 8px;
+
+
+	@media (min-width: $breakpoint-sm) {
+		width: 448px;
+		flex-shrink: 0;
+	}
+
+	&__card {
+		background: $color-bg-secondary;
+		padding: 25px 20px; 
+
+		@include media(">=tablet") {
+			padding: 50px 40px 40px;
+		}
+	}
+
+	&__label {
+		font-size: 15px;
+		line-height: 1;
+		color: $color-text-secondary;
+		margin-bottom: 10px;
+
+		@include media(">=tablet") {
+			font-size: 16px;
+		}
+	}
+
+	&__input-group {
+		display: flex;
+	}
+
+	&__input {
+		flex: 1;
+		padding: 11px 10px;
+		font-size: 22px;
+		line-height: 1;
+		font-weight: 500;
+		border: none;
+		border-radius: 10px 0 0 10px;
+		background: $white;
+		color: $color;
+		outline: none;
+		min-width: 0;
+		transition: border-color 0.15s;
+
+		@include media(">=tablet") {
+			font-size: 26px;
+			padding: 16px 15px;
+			height: 64px;
+		}
+
+		&:focus {
+			border-color: $color-border-primary;
+		}
+	}
+
+	&__select-wrap {
+		position: relative;
+	}
+
+	&__select {
+		appearance: none;
+		-webkit-appearance: none;
+		padding: 10px 26px 10px 10px;
+		border: 0.5px solid $color-border-tertiary;
+		border-radius: $radius-md;
+		background: $color-bg-primary;
+		color: $color-text-primary;
+		font-size: 13px;
+		font-weight: 500;
+		cursor: pointer;
+		outline: none;
+		width: 80px;
+		height: 100%;
+		transition: border-color 0.15s;
+
+		&:focus {
+			border-color: $color-border-primary;
+		}
+	}
+
+	&__select-arrow {
+		position: absolute;
+		right: 7px;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		color: $color-text-secondary;
+		font-size: 9px;
+	}
+
+	// ── Swap divider ───────────────────────
+	&__swap-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 15px 0 -11px;
+		position: relative;
+	}
+
+	&__swap-line {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 0.5px;
+		background: $color-border-tertiary;
+	}
+
+	&__swap-btn {
+		position: relative;
+		z-index: 1;
+		width: 32px;
+		height: 32px;
+		border: none;
+		background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M27.2 0C25.12 0 23.36 1.344 22.688 3.2L7.2 3.2C6.13913 3.2 5.12172 3.62143 4.37157 4.37157C3.62143 5.12172 3.2 6.13913 3.2 7.2V12.8H0L4.8 19.2L9.6 12.8H6.4V7.2C6.4 6.752 6.752 6.4 7.2 6.4L22.688 6.4C23.344 8.256 25.104 9.6 27.2 9.6C29.84 9.6 32 7.44 32 4.8C32 2.16 29.84 0 27.2 0ZM28.8 4.8C28.8 5.68 28.08 6.4 27.2 6.4C26.32 6.4 25.6 5.68 25.6 4.8C25.6 3.92 26.32 3.2 27.2 3.2C28.08 3.2 28.8 3.92 28.8 4.8ZM9.312 28.8H24.8C25.8609 28.8 26.8783 28.3786 27.6284 27.6284C28.3786 26.8783 28.8 25.8609 28.8 24.8V19.2H32L27.2 12.8L22.4 19.2H25.6V24.8C25.6 25.248 25.248 25.6 24.8 25.6H9.312C8.656 23.744 6.896 22.4 4.8 22.4C2.16 22.4 0 24.56 0 27.2C0 29.84 2.16 32 4.8 32C6.88 32 8.64 30.656 9.312 28.8ZM3.2 27.2C3.2 26.32 3.92 25.6 4.8 25.6C5.68 25.6 6.4 26.32 6.4 27.2C6.4 28.08 5.68 28.8 4.8 28.8C3.92 28.8 3.2 28.08 3.2 27.2Z' fill='%2363718C'/%3e%3c/svg%3e ");
+		cursor: pointer;
+		transition: opacity 0.15s;
+
+		&:hover {
+			opacity: .85;
+		}
+	}
+
+	// ── Rate badge ─────────────────────────
+	&__rate-badge {
+		background: $color-bg-primary;
+		border-radius: $radius-md;
+		padding: 20px 0 25px;
+		display: flex;
+		justify-content: flex-start;
+		gap: 5px;
+		align-items: center;
+		color: #38393A;
+
+		@include media(">=tablet") {
+			padding: 28px 0 32px;
+			justify-content: center;
+		}
+	}
+
+	// ── Order button ───────────────────────
+	&__order-btn {
+		width: 100%;
+		padding: 14px 12px;
+		color: $color-bg-primary;
+		border: none;
+		border-radius: 10px;
+		font-size: 18px;
+		line-height: 1.5;
+		font-weight: 500;
+		cursor: pointer;
+		background-color: $color;
+		color: $white;
+		transition: opacity 0.15s;
+		margin-bottom: 15px;
+		letter-spacing: 2px;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		@include media(">=tablet") {
+			padding: 18px 12px;
+			margin-bottom: 25px;
+		}
+	}
+
+	// ── Wholesale note ─────────────────────
+	&__note {
+		font-size: 15px;
+		color: #38393A;
+		text-align: left;
+		margin: 0;
+
+		@include media(">=tablet") {
+			text-align: center;
+		}
+	}
+}
+
+/* Контейнер кастомного селекта */
+.custom-select {
+    position: relative;
+    min-width: 100px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.select-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px;
+    background: #fff;
+    font-weight: 600;
+	font-size: 20px;
+	line-height: 1.3;
+	border-radius: 0 10px 10px 0;
+	height: 56px;
+
+
+	@include media(">=tablet") {
+		height: 64px;
+	}
+}
+
+.select-trigger::after {
+    content: '';
+    margin-left: auto;
+	width: 14px;
+	height: 8px;
+	@extend .icon__select-arrow--close;
+	background-size: contain;
+	transition: all .2s ease-in-out;
+}
+
+.active .select-trigger::after {
+	transform: rotate(180deg);
+}
+
+/* 1. Настраиваем сам скроллбар (ширина) */
+.select-options::-webkit-scrollbar {
+    width: 4px; /* Здесь задаешь толщину. 4px — это очень тонко */
+}
+
+/* 2. Настраиваем дорожку, по которой бегает ползунок */
+.select-options::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+
+/* 3. Настраиваем сам ползунок */
+.select-options::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+
+/* Изменяем цвет при наведении */
+.select-options::-webkit-scrollbar-thumb:hover {
+    background: #999; 
+}
+
+/* Скрываем кнопки скроллбара (стрелочки) */
+.select-options::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.select-options {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-width: 0px 0px 2px 2px;
+	border-style: solid;
+	border-color: #ECF1F8;
+    z-index: 100;
+    display: none; /* Скрыто по умолчанию */
+    max-height: 250px;
+    overflow-y: auto;
+	scrollbar-width: thin; /* Делает скролл тонким */
+    scrollbar-color: #ccc #f1f1f1; /* Цвет ползунка и дорожки */
+}
+
+
+.custom-select.active .select-options {
+    display: block;
+}
+
+.option {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s;
+}
+
+.option:hover {
+    background: #ECF1F8;
+}
+
+.flag {
+    font-size: 1.2em;
+}
+
+/* Скрываем нативный селект */
+#from-cur, #to-cur {
+    display: none !important;
+}
+
+.custom-select-container {
+    position: relative;
+    user-select: none;
+}
+
+.custom-select-visual {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.sel-arrow {
+    width: 10px;
+    height: 6px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' fill='none'/%3E%3C/svg%3E") no-repeat center;
+    transition: transform 0.2s;
+}
+
+.custom-select-container.active .sel-arrow {
+    transform: rotate(180deg);
+}
+
+.custom-select-drop {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 100px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 100;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.custom-select-container.active .custom-select-drop {
+    display: block;
+}
+
+.custom-select-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.custom-select-item:hover {
+    background: #f5f7fb;
+}
+
+.custom-select-item.selected {
+    background: #eff4ff;
+}
+
+.custom-select-item img, .sel-flag {
+    width: 24px;
+    height: auto;
+    border-radius: 2px;
+}

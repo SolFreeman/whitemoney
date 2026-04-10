@@ -1,0 +1,115 @@
+.svg-tabs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 970px;
+    margin: 0 auto;
+
+    @include media(">=tablet") {
+        flex-direction: row;
+        align-items: center;
+        gap: 93px;
+    }
+}
+
+.svg-side {
+    width: 100%; // Для мобилок лучше 100%
+    max-width: 517px; 
+    flex-shrink: 0;
+    
+    svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.hit {
+    cursor: pointer;
+    
+    circle.bg {
+        transition: fill 0.35s ease;
+    }
+}
+
+.text-side {
+    flex: 1;
+    min-width: 0;
+
+    @include media(">=tablet") {
+        max-width: 370px;
+    }
+}
+
+// Контейнер для анимации
+.content-inner {
+    position: relative; // Чтобы табы не "прыгали" при смене
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &.out {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+// ЛОГИКА ТАБОВ
+.tab-item {
+    display: none;
+    
+    &.active {
+        display: block;
+        animation: fadeIn 0.4s ease forwards;
+    }
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $color;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    
+    @include media(">=tablet") {
+        line-height: 1.2;
+        font-size: 36px;
+    }
+}
+
+.content-text {
+    font-size: 16px;
+    color: #38393A;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+// (DOTS)
+// .content-dots {
+//     display: flex;
+//     gap: 10px;
+//     margin-top: 32px;
+
+//     .dot {
+//         width: 8px;
+//         height: 8px;
+//         border-radius: 50%;
+//         background-color: #E2E8F0;
+//         cursor: pointer;
+//         transition: all 0.3s ease;
+
+//         &:hover {
+//             background-color: #CBD5E1;
+//         }
+
+//         &.active {
+//             background-color: #3182CE; // Твой акцентный цвет
+//             transform: scale(1.2);
+//         }
+//     }
+// }
+
+// Вспомогательная анимация появления
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
