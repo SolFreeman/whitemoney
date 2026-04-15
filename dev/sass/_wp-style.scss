@@ -7,12 +7,19 @@ img {
 
     &.alignleft {
         margin: 0 30px 25px 0;
-        float: left;
+        
+        @include media(">=tablet") {
+            float: left;
+        }
     }
+    
 
     &.alignright {
         margin: 0 0 25px 30px;
-        float: right;
+        
+        @include media(">=tablet") {
+            float: right;
+        }
     }
 
     &.aligncenter {

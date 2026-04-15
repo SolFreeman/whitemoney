@@ -9,11 +9,11 @@
 		padding: 25px;
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.27);
 
-		@include media('>=tablet') {
+		@include media(">=tablet") {
 			width: 50%;
 		}
 
-		@include media('>=1280px') {
+		@include media(">=1280px") {
 			width: calc(100% / 3);
 		}
 
@@ -38,7 +38,7 @@
 				&:hover {
 					cursor: pointer;
 
-					&>a {
+					& > a {
 						text-decoration: underline;
 					}
 
@@ -62,7 +62,6 @@
 					height: 10px;
 					background-color: $primary-color;
 					border-radius: 50%;
-
 				}
 
 				&:after {
@@ -124,7 +123,7 @@ body {
 }
 
 .scrolltop {
-	display: none;
+	// display: none;
 	width: 100%;
 	margin: 0 auto;
 	position: fixed;
@@ -154,8 +153,22 @@ body {
 	}
 }
 
+.scrolltop {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    // Когда кнопка должна появиться
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
 /*1*/
-[class*='brand-bg'] {
+[class*="brand-bg"] {
 	background-color: $primary-color;
 	height: 15vh;
 	width: 75%;
@@ -167,7 +180,7 @@ body {
 }
 
 .brand-bg-3 {
-	background-color: $bg-style-primary
+	background-color: $bg-style-primary;
 }
 
 .brand-bg-4 {
@@ -214,7 +227,7 @@ ul {
 		list-style: none;
 		list-style-position: outside;
 		position: relative;
-		padding-left: 30px;
+		padding-left: 20px;
 
 		&:before {
 			content: counter(li, decimal) ".";
@@ -225,7 +238,7 @@ ul {
 			color: $color;
 			position: absolute;
 			top: 0;
-			left: 0
+			left: 0;
 		}
 	}
 }
@@ -236,12 +249,12 @@ ul {
 	li {
 		&::before {
 			content: "";
-			background-color: $secondary-color;
+			background-color: #38393A;
 			border-radius: 50%;
-			width: 10px;
-			min-width: 10px;
-			height: 10px;
-			top: 7px;
+			width: 8px;
+			min-width: 8px;
+			height: 8px;
+			top: 10px;
 		}
 	}
 }
@@ -295,7 +308,17 @@ h1,
 
 h2,
 .title_2 {
-	font-size: 24px;
+	font-size: 22px;
+	line-height: 1.3;
+	margin-bottom: 20px;
+	font-weight: 500;
+
+	@include media(">=tablet") {
+		font-size: 36px;
+		line-height: 1.2;
+		margin-bottom: 50px;
+		display: block;
+	}
 }
 
 h3,
@@ -318,19 +341,18 @@ h6,
 	font-size: 14px;
 }
 
-
 /*9*/
 
 input[type="checkbox"],
 input[type="radio"] {
 	display: none;
 
-	&+label {
+	& + label {
 		color: $white;
 		cursor: pointer;
 
 		&:before {
-			content: '';
+			content: "";
 			display: inline-block;
 			vertical-align: middle;
 			cursor: pointer;
@@ -344,35 +366,29 @@ input[type="radio"] {
 	}
 }
 
-
-
-input[type="radio"]+label:before {
+input[type="radio"] + label:before {
 	border-radius: 50%;
 }
 
-input[type="checkbox"]+label:before {
+input[type="checkbox"] + label:before {
 	background-color: $white;
 }
 
-input[type=radio]:checked+label:before {
+input[type="radio"]:checked + label:before {
 	border-radius: 50%;
 	background: url(assets/img/radio.svg) center/14px no-repeat transparent;
 	border-color: $white;
 }
 
-
-input:checked+label {
+input:checked + label {
 	&:before {
-		content: '';
+		content: "";
 		background: url(assets/img/checkbox.svg) center/12px no-repeat $white;
 		border-color: $white;
 	}
 }
 
-
 /*10-11*/
-
-
 
 .btn {
 	display: inline-flex;
@@ -394,7 +410,11 @@ input:checked+label {
 
 	background-color: #fff;
 	border-radius: 0;
-	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	transition:
+		color 0.15s ease-in-out,
+		background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out,
+		box-shadow 0.15s ease-in-out;
 
 	&:disabled {
 		pointer-events: none;
@@ -420,7 +440,7 @@ input:checked+label {
 }
 
 .btn-secondary {
-	color: #2E2E2E;
+	color: #2e2e2e;
 	background-color: $white;
 	border-color: $white;
 
@@ -479,83 +499,83 @@ input:checked+label {
 
 .scroll-x::-webkit-scrollbar {
 	height: 1px;
-	background-color: #DFDCDC;
-	border: 0 solid #DFDCDC;
+	background-color: #dfdcdc;
+	border: 0 solid #dfdcdc;
 	border-radius: 5px;
 }
 
-    // Светлый фон дорожки
+// Светлый фон дорожки
 
 .scroll {
-    // 1. Включаем отображение скролла (обязательно)
-    overflow-y: auto;
-    
-    // 2. Базовые настройки для Webkit (Chrome, Safari, Edge)
-    &::-webkit-scrollbar {
-        display: block; // Гарантируем, что он не скрыт
-        width: 8px;    // Ширина всей области скролла
-    }
+	// 1. Включаем отображение скролла (обязательно)
+	overflow-y: auto;
 
-    // 3. Дорожка (Track)
-    &::-webkit-scrollbar-track {
-        background-color: #F1F1F1; // Светлый фон как на скрине
-        border-radius: 10px;
-        margin: 4px 0; // Отступы сверху/снизу, чтобы не прилипал
-    }
+	// 2. Базовые настройки для Webkit (Chrome, Safari, Edge)
+	&::-webkit-scrollbar {
+		display: block; // Гарантируем, что он не скрыт
+		width: 8px; // Ширина всей области скролла
+	}
 
-    // 4. Ползунок (Thumb)
-    &::-webkit-scrollbar-thumb {
-        background-color: #63718C; // Тёмный цвет
-        border-radius: 10px;
-        
-        // Делаем ползунок чуть уже дорожки для красоты
-        border: 2px solid #F1F1F1; 
-        background-clip: padding-box;
+	// 3. Дорожка (Track)
+	&::-webkit-scrollbar-track {
+		background-color: #f1f1f1; // Светлый фон как на скрине
+		border-radius: 10px;
+		margin: 4px 0; // Отступы сверху/снизу, чтобы не прилипал
+	}
 
-        &:hover {
-            background-color: #364454;
-        }
-    }
+	// 4. Ползунок (Thumb)
+	&::-webkit-scrollbar-thumb {
+		background-color: #63718c; // Тёмный цвет
+		border-radius: 10px;
 
-    // 5. СКРЫВАЕМ КНОПКИ (Стрелочки)
-    // Вместо display: none (который может ломать скролл), 
-    // просто обнуляем их размер
-    &::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-        display: none;
-    }
+		// Делаем ползунок чуть уже дорожки для красоты
+		border: 2px solid #f1f1f1;
+		background-clip: padding-box;
 
-    // 6. Для Firefox (минимум настроек, но рабочие)
-    scrollbar-width: thin;
-    scrollbar-color: #4a5d73 #F1F1F1;
+		&:hover {
+			background-color: #364454;
+		}
+	}
+
+	// 5. СКРЫВАЕМ КНОПКИ (Стрелочки)
+	// Вместо display: none (который может ломать скролл),
+	// просто обнуляем их размер
+	&::-webkit-scrollbar-button {
+		width: 0;
+		height: 0;
+		display: none;
+	}
+
+	// 6. Для Firefox (минимум настроек, но рабочие)
+	scrollbar-width: thin;
+	scrollbar-color: #4a5d73 #f1f1f1;
 }
 
 // Горизонтальный скролл
 .scroll_x {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: 20px;
 
-    &::-webkit-scrollbar {
-        height: 6px;
-    }
+	&::-webkit-scrollbar {
+		height: 6px;
+	}
 
-    @media (min-width: 1281px) {
-        overflow-x: hidden;
-    }
+	@media (min-width: 1281px) {
+		overflow-x: hidden;
+	}
 }
 
 // Полное скрытие скролла
 .scroll-hidden {
-    scrollbar-width: none; // Firefox
-    -ms-overflow-style: none; // IE/Edge
-    
-    &::-webkit-scrollbar {
-        display: none;
-        width: 0;
-        height: 0;
-    }
+	scrollbar-width: none; // Firefox
+	-ms-overflow-style: none; // IE/Edge
+
+	&::-webkit-scrollbar {
+		display: none;
+		width: 0;
+		height: 0;
+	}
 }
 
 /*14*/
@@ -596,7 +616,7 @@ input:checked+label {
 .slick-arrow {
 	position: absolute;
 	background-color: rgba(33, 33, 33, 0.9);
-	border: 2px solid #C40401;
+	border: 2px solid #c40401;
 	border-radius: 3px;
 	transform: rotate(45deg);
 	transition: background-color ease-in-out 0.3s;
@@ -606,7 +626,7 @@ input:checked+label {
 	z-index: 10;
 	cursor: pointer;
 
-	@include media('>=tablet') {
+	@include media(">=tablet") {
 		width: 60px;
 		height: 60px;
 	}
@@ -621,7 +641,7 @@ input:checked+label {
 			left: -62%;
 			font-size: 40px;
 
-			@include media('>=tablet') {
+			@include media(">=tablet") {
 				font-size: 60px;
 			}
 		}
@@ -637,7 +657,7 @@ input:checked+label {
 			left: 57%;
 			font-size: 40px;
 
-			@include media('>=tablet') {
+			@include media(">=tablet") {
 				font-size: 60px;
 			}
 		}
@@ -648,7 +668,7 @@ input:checked+label {
 	}
 
 	&:hover {
-		background-color: #BF0F0D;
+		background-color: #bf0f0d;
 	}
 
 	i {
@@ -672,7 +692,7 @@ input:checked+label {
 
 		&.slick-active {
 			button {
-				background-color: #C40401;
+				background-color: #c40401;
 			}
 		}
 
@@ -693,7 +713,7 @@ input:checked+label {
 		transition: background-color ease-in-out 0.3s;
 
 		&:hover {
-			background-color: #C40401;
+			background-color: #c40401;
 		}
 	}
 }
@@ -701,7 +721,7 @@ input:checked+label {
 .container {
 	width: 100%;
 	padding: 0 20px;
-	max-width: 1200px;
+	max-width: calc(1200px + 40px);
 	margin: 0 auto;
 
 	&_xm {
@@ -734,14 +754,14 @@ input:checked+label {
 .section {
 	padding: 60px 0;
 
-	@include media('>=tablet') {
+	@include media(">=tablet") {
 		padding: 120px 0;
 	}
 
 	&_sm {
 		padding: 40px 0 80px;
 
-		@include media('>=tablet') {
+		@include media(">=tablet") {
 			padding: 21px 0 130px;
 		}
 	}
@@ -752,11 +772,10 @@ input:checked+label {
 }
 
 .breadcrumbs {
-	padding: 20px 0 0;
-	background-color: #F5F5F5;
+	padding: 20px 0;
 
-	@include media('>=tablet') {
-		padding: 80px 0 0;
+	@include media(">=tablet") {
+		padding: 60px 0 30px;
 	}
 
 	&__list {
@@ -764,26 +783,29 @@ input:checked+label {
 		margin: 0;
 		padding: 0;
 		width: 100%;
+		gap: 4px;
 
 		li {
 			padding-left: 0;
-			padding-right: 26px;
-			font-weight: 500;
-			font-size: 14px;
-			line-height: 24px;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 1.5;
+			display: flex;
+			align-items: center;
+			gap: 4px;
 
 			a {
-				text-decoration-line: underline;
-				color: #121212;
+				text-decoration: none;
+				color: #63718C;
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 
 			span {
-				color: #838383;
+				color: #63718C;
 				white-space: nowrap;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				max-width: 140px;
-				display: inline-block;
 			}
 
 			&:last-of-type {
@@ -797,14 +819,13 @@ input:checked+label {
 			}
 
 			&:after {
-				position: absolute;
-				content: '';
-				background-color: #838383;
-				transform: rotate(-45deg);
-				width: 4px;
-				height: 4px;
-				top: 11px;
-				right: 9px;
+				content: "|";
+				font-size: 15px;
+				line-height: 0.5;
+				color: #63718C;
+				height: 15px;
+				overflow: hidden;
+				transform: translateY(1px);
 			}
 		}
 	}
@@ -839,6 +860,8 @@ body.fancybox-iosfix {
 	border-radius: 5px;
 	font-size: 12px;
 	opacity: 1;
-	transition: opacity 0.3s ease, visibility 0.9s ease;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.9s ease;
 	visibility: visible;
 }

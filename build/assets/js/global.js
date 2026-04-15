@@ -1109,7 +1109,83 @@ function svgTabs() {
 	});
 }
 
-// Главное изменение: защита от повторной инициализации + fallback если DOM уже готов
+
+function smoothScrollTo(targetSelector, duration = 3000) {
+    const trigger = document.querySelector('.muve-top');
+    const target = document.querySelector(targetSelector);
+
+    if (!trigger || !target) return;
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const startPosition = window.pageYOffset;
+        const targetPosition = target.getBoundingClientRect().top + startPosition;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        // Функция плавности (аналог easeOutExpo)
+        function easeOutExpo(t, b, c, d) {
+            return (t === d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+        }
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeOutExpo(timeElapsed, startPosition, distance, duration);
+            
+            window.scrollTo(0, run);
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    });
+}
+
+function initAccordeonMenu() {
+    const menuItems = document.querySelectorAll('.has-sub-menu');
+    const animationDuration = 300; // Длительность анимации в мс
+
+    menuItems.forEach(item => {
+        const trigger = item.querySelector('span') || item.querySelector('a');
+        const subMenu = item.querySelector('.sidebar-sub-menu');
+
+        if (trigger && subMenu) {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const isActive = item.classList.contains('active');
+
+                // 1. Закрываем все другие открытые меню (Аккордеон)
+                menuItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        const otherSubMenu = otherItem.querySelector('.sidebar-sub-menu');
+                        otherItem.classList.remove('active');
+                        if (otherSubMenu) slideUp(otherSubMenu, animationDuration);
+                    }
+                });
+
+                // 2. Переключаем текущее меню
+                if (isActive) {
+                    // Если нажали на уже открытое — закрываем
+                    item.classList.remove('active');
+                    slideUp(subMenu, animationDuration);
+                } else {
+                    // Если нажали на закрытое — открываем
+                    item.classList.add('active');
+                    slideDown(subMenu, animationDuration);
+                }
+            });
+        }
+    });
+}
+
+
+
+
 function init() {
 	if (document.querySelector(".language-title")?._initialized) return;
 	document.querySelector(".language-title")._initialized = true;
@@ -1122,6 +1198,8 @@ function init() {
 	openMobileNav();
 	contactMapTabsAccordeon();
 	svgTabs();
+	smoothScrollTo('.thetop', 3000);
+	initAccordeonMenu();
 
 	// hero slider
 	new Swiper(".hero-slider", {
@@ -1233,14 +1311,26 @@ document.querySelectorAll(".faq-trigger").forEach((trigger) => {
 	});
 });
 
-// Вместо обычного bind попробуй привязаться к документу
+
 Fancybox.bind(document.body, "[data-fancybox]", {
 	// настройки (если нужны)
 });
 
-// Работает и когда DOMContentLoaded ещё не сработал, и когда уже сработал
+
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", init);
 } else {
 	init();
 }
+
+window.addEventListener('scroll', function() {
+    const scrollTopBtn = document.querySelector('.scrolltop');
+    
+    if (scrollTopBtn) {
+        if (window.scrollY > 50) {
+            scrollTopBtn.classList.add('is-visible');
+        } else {
+            scrollTopBtn.classList.remove('is-visible');
+        }
+    }
+});

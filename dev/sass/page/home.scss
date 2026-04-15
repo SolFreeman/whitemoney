@@ -1063,6 +1063,7 @@
 		padding: 0;
 		max-width: 1026px;
 		margin: 0 auto;
+		color: #38393A;
 
 		img {
 			display: none;
@@ -1101,11 +1102,17 @@
 		p {
 			font-size: 15px;
 			margin: 0 0 10px;
+			overflow: hidden;
 
 			@include media(">=tablet") {
 				margin: 0 0 22px;
 				font-size: 16px;
 			}
+		}
+
+		ul {
+			margin: 0 0 22px;
+			overflow: hidden;
 		}
 	}
 }

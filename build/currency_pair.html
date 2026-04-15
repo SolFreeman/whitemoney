@@ -149,145 +149,332 @@
         </div>
     </header>
 
-    <main class="wrapper blog">
-        <div class="breadcrumbs">
+    <main class="wrapper currency_pair">
+        <section class="section exchange">
             <div class="container">
-                <ul class="breadcrumbs__list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Послуги</a></li>
-                    <li><span>Обмін популярних валют</span></li>
-                </ul>
-            </div>
-        </div>
+                <div class="cx">
+                    <div class="cx__layout">
+                        <div class="col-exchange-rate">
+                            <h1>Обмін євро на злоті в Гданську</h1>
+                            <div class="exchange-title">EUR - PLN</div>
+                            <div class="two-col">
+                                <div class="col">
+                                    <div class="pay-title">Купівля</div>
+                                    <div class="cource down">4.2755</div>
+                                </div>
+                                <div class="col">
+                                    <div class="pay-title">Продаж</div>
+                                    <div class="cource up">4.2755</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ── Converter card  -->
+                        <div class="conv">
+                            <div class="conv__card">
+                                <p class="conv__label">Віддаєте</p>
+                                <div class="conv__input-group">
+                                    <input type="number" class="conv__input" id="from-amount" value="1000">
+                                    <div class="custom-select" id="from-cur-custom">
+                                        <div class="select-trigger">
+                                            <span class="flag">
+											<img src="./assets/img/icon_PLN.svg" alt="">
+										</span>
+                                            <span class="code">PLN</span>
+                                        </div>
+                                        <div class="select-options">
+                                            <div class="option" data-value="EUR">
+                                                <span class="flag">
+												<img src="./assets/img/icon_EUR.svg" alt="">
+											</span>
+                                                EUR
+                                            </div>
+                                            <div class="option" data-value="USD">
+                                                <span class="flag">
+												<img src="./assets/img/icon_USD.svg" alt="">
+											</span>
+                                                USD
+                                            </div>
+                                            <div class="option" data-value="GBP">
+                                                <span class="flag">
+												<img src="./assets/img/icon_GBR.svg" alt="">
+											</span>
+                                                GBP
+                                            </div>
+                                            <div class="option" data-value="CHF">
+                                                <span class="flag">
+												<img src="./assets/img/icon_CHF.svg" alt="">
+											</span>
+                                                CHF
+                                            </div>
+                                            <div class="option" data-value="CAD">
+                                                <span class="flag">
+												<img src="./assets/img/icon_CAD.svg" alt="">
+											</span>
+                                                CAD
+                                            </div>
+                                            <div class="option" data-value="PLN">
+                                                <span class="flag">
+												<img src="./assets/img/icon_PLN.svg" alt="">
+											</span>
+                                                PLN
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="from-cur" value="EUR">
+                                    </div>
+                                </div>
 
-        <section class="blog-news">
-            <div class="container">
-                <div class="twocolumns">
-                    <aside class="sidebar">
-                        <div class="sidebar-box">
-                            <div class="sidebar-title">Всі статті</div>
-                            <ul class="accordeon-menu">
-                                <li class="has-sub-menu">
-                                    <span>Фінанси</span>
-                                    <ul class="sidebar-sub-menu">
-                                        <li><a href="#">Валютні операції</a></li>
-                                        <li><a href="#">Платежі та перекази</a></li>
-                                        <li><a href="#">Банки та інвестиції</a></li>
-                                        <li><a href="#">Фінансові поради</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Экономіка</a>
-                                </li>
-                                <li>
-                                    <a href="#">Інвестиції</a>
-                                </li>
-                                <li>
-                                    <a href="#">Аналітика</a>
-                                </li>
-                                <li>
-                                    <a href="#">Новини валютного ринку</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-banner">
-                            <img src="./assets/img/sidebar_banner.jpg" alt="image description">
-                            <div class="sidebar-banner-text">
-                                <div class="logo">
-                                    <img src="./assets/img/sidebar-logo.svg" alt="image description">
+                                <div class="conv__swap-wrap">
+                                    <div class="conv__swap-line"></div>
+                                    <button class="conv__swap-btn" id="swap-btn"></button>
                                 </div>
-                                <div class="side-banner-title">Обмін валют за найкращим курсом</div>
-                                <p> Спеціальні умови при обміні від 4000 zł</p>
-                            </div>
-                        </div>
-                    </aside>
-                    <div class="blog-list-area">
-                        <h2 class="blog-title">Новини</h2>
-                        <div class="blog-list">
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog1.jpg" alt="image description">
-                                </div>
-                                <div class="text">
-                                    <h3><a href="#">Стабільність злотого на початку 2026 року</a></h3>
-                                    <span class="date">Дата публікації 06.02.2026</span>
-                                    <p>Економіка демонструє стабільний ріст завдяки зростанню експорту та внутрішнього споживання. Сильний національний курс сприяє довірі інвесторів та приваблює капітал у країну. Курс долара та євро до злотого коливається в межах помірних значень. Kantor White Money постійно оновлює курси в реальному часі, щоб клієнти могли обмінювати валюту вигідно...</p>
-                                </div>
-                            </div>
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog2.jpg" alt="image description">
-                                </div>
-                                <div class="text">
-                                    <h3><a href="#">Долар і євро: останні тенденції</a></h3>
-                                    <span class="date">Дата публікації 03.02.2026</span>
-                                    <p>Курс долара в лютому демонструє невеликий ріст через підвищений попит серед експортерів та туристів. Євро залишається стабільним, але невеликі коливання виникають через економічні показники країн ЄС. Показники Німеччини та Франції впливають на курс євро до злотого Обмінники, зокрема Kantor White Money, оновлюють курси щохвилини, що дозволяє клієнтам вибирати оптимальний час для операцій. Фінансові консультанти радять використовувати фіксовані онлайн-курси для обміну великих сум, щоб убезпечити себе від несподіваних коливань. Динаміка валют безпосередньо впливає на міжнародні бізнес-операції. Kantor White Money пропонує індивідуальні консультації та вигідні умови для корпоративних клієнтів. Регулярний моніторинг ринку та користування сервісами онлайн-бронирования курсів стає необхідністю для тих, хто активно працює з іноземною валютою.</p>
-                                </div>
-                            </div>
 
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog3.jpg" alt="image description">
+                                <p class="conv__label">Отримуєте</p>
+                                <div class="conv__input-group">
+                                    <input type="number" class="conv__input conv__input--readonly" id="to-amount" readonly>
+                                    <div class="custom-select" id="to-cur-custom">
+                                        <div class="select-trigger">
+                                            <span class="flag">
+											<img src="./assets/img/icon_EUR.svg" alt="">
+										</span>
+                                            <span class="code">EUR</span>
+                                        </div>
+                                        <div class="select-options">
+                                            <div class="option" data-value="EUR">
+                                                <span class="flag">
+												<img src="./assets/img/icon_EUR.svg" alt="">
+											</span>
+                                                EUR
+                                            </div>
+                                            <div class="option" data-value="USD">
+                                                <span class="flag">
+												<img src="./assets/img/icon_USD.svg" alt="">
+											</span>
+                                                USD
+                                            </div>
+                                            <div class="option" data-value="GBP">
+                                                <span class="flag">
+												<img src="./assets/img/icon_GBR.svg" alt="">
+											</span>
+                                                GBP
+                                            </div>
+                                            <div class="option" data-value="CHF">
+                                                <span class="flag">
+												<img src="./assets/img/icon_CHF.svg" alt="">
+											</span>
+                                                CHF
+                                            </div>
+                                            <div class="option" data-value="CAD">
+                                                <span class="flag">
+												<img src="./assets/img/icon_CAD.svg" alt="">
+											</span>
+                                                CAD
+                                            </div>
+                                            <div class="option" data-value="PLN">
+                                                <span class="flag">
+												<img src="./assets/img/icon_PLN.svg" alt="">
+											</span>
+                                                PLN
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="to-cur" value="PLN">
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h3><a href="#">Нові правила обміну валют: що змінюється у 2026 році</a></h3>
-                                    <span class="date">Дата публікації 31.01.2026</span>
-                                    <p>Економіка демонструє стабільний ріст завдяки зростанню експорту та внутрішнього споживання. Сильний національний курс сприяє довірі інвесторів та приваблює капітал у країну. Курс долара та євро до злотого коливається в межах помірних значень. Kantor White Money постійно оновлює курси в реальному часі, щоб клієнти могли обмінювати валюту вигідно...</p>
+
+                                <div class="conv__rate-badge">
+                                    <span class="conv__rate-badge-label" id="rate-label">Курс <span class="conv__rate-badge-value" id="rate-val-display">—</span> (Купівля)</span>
+
+                                    <span class="conv__spread-label"> Спред: <span id="spread-val">0.00</span></span>
                                 </div>
-                            </div>
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog3.jpg" alt="image description">
-                                </div>
-                                <div class="text">
-                                    <h3><a href="#">Нові правила обміну валют: що змінюється у 2026 році</a></h3>
-                                    <span class="date">Дата публікації 31.01.2026</span>
-                                    <p>Економіка демонструє стабільний ріст завдяки зростанню експорту та внутрішнього споживання. Сильний національний курс сприяє довірі інвесторів та приваблює капітал у країну. Курс долара та євро до злотого коливається в межах помірних значень. Kantor White Money постійно оновлює курси в реальному часі, щоб клієнти могли обмінювати валюту вигідно...</p>
-                                </div>
-                            </div>
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog3.jpg" alt="image description">
-                                </div>
-                                <div class="text">
-                                    <h3><a href="#">Нові правила обміну валют: що змінюється у 2026 році</a></h3>
-                                    <span class="date">Дата публікації 31.01.2026</span>
-                                    <p>Економіка демонструє стабільний ріст завдяки зростанню експорту та внутрішнього споживання. Сильний національний курс сприяє довірі інвесторів та приваблює капітал у країну. Курс долара та євро до злотого коливається в межах помірних значень. Kantor White Money постійно оновлює курси в реальному часі, щоб клієнти могли обмінювати валюту вигідно...</p>
-                                </div>
-                            </div>
-                            <div class="blog-list-item">
-                                <div class="img-holder">
-                                    <img src="./assets/img/blog3.jpg" alt="image description">
-                                </div>
-                                <div class="text">
-                                    <h3><a href="#">Нові правила обміну валют: що змінюється у 2026 році</a></h3>
-                                    <span class="date">Дата публікації 31.01.2026</span>
-                                    <p>Економіка демонструє стабільний ріст завдяки зростанню експорту та внутрішнього споживання. Сильний національний курс сприяє довірі інвесторів та приваблює капітал у країну. Курс долара та євро до злотого коливається в межах помірних значень. Kantor White Money постійно оновлює курси в реальному часі, щоб клієнти могли обмінювати валюту вигідно...</p>
-                                </div>
+                                <button class="conv__order-btn">Замовити обмін</button>
+                                <p class="conv__note">* Оптовий обмін від 4000 злотих</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <ul class="paginations-btn">
-                    <li><a href="#" class="prev-page inactive"></a></li>
-                    <li class="active">1</li>
-                    <li><a href="#"><span>2</span></a></li>
-                    <li><a href="#"><span>3</span></a></li>
-                    <li><a href="#"><span>4</span></a></li>
-                    <li><a href="#" class="next-page"></a></li>
-                </ul>
-                <div class="sidebar-banner mobile">
-                    <img src="./assets/img/sidebar_banner.jpg" alt="image description">
-                    <div class="sidebar-banner-text">
-                        <div class="logo">
-                            <img src="./assets/img/sidebar-logo.svg" alt="image description">
-                        </div>
-                        <div class="side-banner-title">Обмін валют за найкращим курсом</div>
-                        <p> Спеціальні умови при обміні від 4000 zł</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="actuality-courses">
+            <div class="container">
+                <h2>Актуальний курс EUR - PLN на сьогодні</h2>
+            </div>
+        </section>
+
+        <section class="exchange-wrapper">
+            <div class="container">
+                <div class="exchange-tables">
+                    <div class="exchange-table-item">
+                        <h4 class="table-title">Перевести євро в злоті</h4>
+                        <div class="table-header">
+                            <div class="table-header__cell"><img src="./assets/img/icon_EUR.svg"> EUR</div>
+                            <div class="table-header__cell"><img src="./assets/img/icon_PLN.svg"> PLN</div>
+                        </div>
+                        <div class="info-block">
+                            <div class="table-row"><span>1 EUR</span> <span>4.27557 PLN</span></div>
+                            <div class="table-row"><span>50 EUR</span> <span>213.757 PLN</span></div>
+                            <div class="table-row"><span>100 EUR</span> <span>427.515 PLN</span></div>
+                            <div class="table-row"><span>500 EUR</span> <span>2,137.57 PLN</span></div>
+                            <div class="table-row"><span>1000 EUR</span> <span>4,275.50 PLN</span></div>
+                        </div>
+                    </div>
+                    <div class="exchange-table-item">
+                        <h4 class="table-title">Перевести злоті в євро</h4>
+                        <div class="table-header">
+                            <div class="table-header__cell"><img src="./assets/img/icon_PLN.svg"> PLN</div>
+                            <div class="table-header__cell"><img src="./assets/img/icon_EUR.svg"> EUR</div>
+                        </div>
+                        <div class="info-block">
+                            <div class="table-row"><span>1 PLN</span> <span>0.233895 EUR</span></div>
+                            <div class="table-row"><span>50 PLN</span> <span>11.6947 EUR</span></div>
+                            <div class="table-row"><span>100 PLN</span> <span>23.3895 EUR</span></div>
+                            <div class="table-row"><span>500 PLN</span> <span>116.952 EUR</span></div>
+                            <div class="table-row"><span>1000 PLN</span> <span>233.904 EUR</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule">
+            <div class="container">
+                <h2>Графік зміни курсу EUR - PLN </h2>
+                <div class="shedule-holder">
+                    <img src="./assets/img/shedule-placeholder.jpg">
+                </div>
+            </div>
+        </section>
+
+        <div class="section course-today">
+            <div class="container">
+                <h2>Обмінний курс EUR - PLN на сьогодні в інших містах</h2>
+                <div class="table-cource">
+                    <div class="heading-table">
+                        <div class="heading-cell cell">Місто</div>
+                        <div class="heading-cell cell">Купівля</div>
+                        <div class="heading-cell cell">Продаж</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="cell"><a href="#">Варшава</a></div>
+                        <div class="cell"><span class="up">4.2755 </span></div>
+                        <div class="cell"><span class="down">4.3390</span></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="cell"><a href="#">Гдиня</a></div>
+                        <div class="cell"><span class="up">4.2755 </span></div>
+                        <div class="cell"><span class="down">4.3390</span></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="cell"><a href="#">Лодзь</a></div>
+                        <div class="cell"><span class="up">4.2755 </span></div>
+                        <div class="cell"><span class="down">4.3390</span></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="cell"><a href="#">Познань</a></div>
+                        <div class="cell"><span class="up">4.2755 </span></div>
+                        <div class="cell"><span class="down">4.3390</span></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="cell"><a href="#">Щецин</a></div>
+                        <div class="cell"><span class="up">4.2755 </span></div>
+                        <div class="cell"><span class="down">4.3390</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section description">
+            <div class="container">
+                <div class="text-holder">
+                    <h2>Обмінний курс EUR - PLN на сьогодні в інших містах</h2>
+                    <img class="alignleft" src="./assets/img/placeholder.jpg" alt="image description">
+                    <p>Валютна пара EUR/PLN є однією з найпопулярніших у Польщі, особливо серед туристів, підприємців та українців, які проживають або працюють у країні. Розуміння особливостей обміну євро на польські злоті допоможе отримати вигідний курс і уникнути зайвих витрат.</p>
+                    <p>Що таке валютна пара EUR/PLN</p>
+                    <p>EUR/PLN показує, скільки польських злотих (PLN) потрібно для купівлі одного євро (EUR). Наприклад, якщо курс становить 4,30 PLN за 1 EUR, це означає, що за 100 євро ви отримаєте приблизно 430 злотих (без урахування комісії).</p>
+                    <p>Від чого залежить курс євро до злотого. <br> Курс EUR/PLN змінюється щодня і залежить від кількох факторів:</p>
+                    <ul>
+                        <li>економічна ситуація в Єврозоні та Польщі</li>
+                        <li>рішення центральних банків</li>
+                        <li>рівень інфляції</li>
+                        <li>попит і пропозиція на валютному ринку </li>
+                        <li>політична стабільність</li>
+                    </ul>
+                    <p>Через це курс у різних обмінниках може відрізнятися....</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="services__header">
+                    <h2 class="services__title">Наші послуги</h2>
+                    <div class="services__navigation">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+
+                <div class="swiper services-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide service-card">
+                            <div class="service-card__bg">
+                                <img src="./assets/img/service-1.jpg" alt="Обмін популярних валют">
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Обмін популярних валют</h3>
+                                <p class="service-card__text">Актуальні курси валют у режимі реального часу</p>
+                                <a href="#" class="service-card__btn">Дивитися</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide service-card">
+                            <div class="service-card__bg">
+                                <img src="./assets/img/service-2.jpg" alt="Оптовий обмін">
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Оптовий обмін</h3>
+                                <p class="service-card__text">Актуальні курси валют у режимі реального часу</p>
+                                <a href="#" class="service-card__btn">Дивитися</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide service-card">
+                            <div class="service-card__bg">
+                                <img src="./assets/img/service-3.jpg" alt="Е-валюти">
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Е-валюти</h3>
+                                <p class="service-card__text">Актуальні курси валют у режимі реального часу</p>
+                                <a href="#" class="service-card__btn">Дивитися</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide service-card">
+                            <div class="service-card__bg">
+                                <img src="./assets/img/service-3.jpg" alt="Е-валюти">
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Е-валюти</h3>
+                                <p class="service-card__text">Актуальні курси валют у режимі реального часу</p>
+                                <a href="#" class="service-card__btn">Дивитися</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide service-card">
+                            <div class="service-card__bg">
+                                <img src="./assets/img/service-2.jpg" alt="Оптовий обмін">
+                            </div>
+                            <div class="service-card__content">
+                                <h3 class="service-card__title">Оптовий обмін</h3>
+                                <a href="#" class="service-card__btn">Дивитися</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
     </main>
 
     <footer class="footer">

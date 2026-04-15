@@ -101,7 +101,7 @@ $color-down: #dc2626;
 		flex-direction: column;
 		gap: 60px;
 
-		@media (min-width: $breakpoint-sm) {
+		@media (min-width: 992px) {
 			flex-direction: row;
 			align-items: flex-start;
 			gap: 40px;
