@@ -1,133 +1,261 @@
 @@include('templates/head.html')
 @@include('templates/header.html')
-<main class="wrapper contact">
-	<section class="blog-hero blog">
+<main class="wrapper contact-page">
+	
+	<section class="map-tabs">
 		<div class="container">
-			<div class="breadcrumbs">
-				<div class="container">
-					<ul class="breadcrumbs__list">
-						<li><a href="#">Home</a></li>
-						<li><span>Contacts</span></li>
-					</ul>
+			<h1>Наші відділення у вашому місті</h1>
+			
+			<nav class="tabs" role="tablist">
+				<button class="tab-btn active" role="tab" data-tab="warsaw">Варшава</button>
+				<button class="tab-btn" role="tab" data-tab="gdansk">Гданськ</button>
+				<button class="tab-btn" role="tab" data-tab="gdynia">Гдиня</button>
+				<button class="tab-btn" role="tab" data-tab="lodz">Лодзь</button>
+				<button class="tab-btn" role="tab" data-tab="poznan">Познань</button>
+				<button class="tab-btn" role="tab" data-tab="szczecin">Щецин</button>
+			</nav>
+
+			<!-- WARSAW -->
+			<div class="tab-panel active" id="panel-warsaw">
+				<h2>Warsaw </h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Marszałkowska 84/92, 00-514 Warszawa</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-warsaw-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
+				</div>
+			</div>
+
+			<!-- GDANSK -->
+			<div class="tab-panel" id="panel-gdansk">
+				<h2>Gdańsk </h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Romana Dmowskiego 12/1, 80-264</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-gdansk-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
+				</div>
+			</div>
+
+			<!-- GDYNIA -->
+			<div class="tab-panel" id="panel-gdynia">
+				<h2>Gdynia </h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Romana Dmowskiego 12/1, 80-264</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-gdynia-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
+				</div>
+			</div>
+
+			<!-- ŁÓDŹ -->
+			<div class="tab-panel" id="panel-lodz">
+				<h2>ŁÓDŹ</h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Romana Dmowskiego 12/1, 80-264</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-lodz-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
+				</div>
+			</div>
+
+			<!-- POZNAŃ -->
+			<div class="tab-panel" id="panel-poznan">
+				<h2>Poznan</h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Romana Dmowskiego 12/1, 80-264</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-poznan-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
+				</div>
+			</div>
+
+			<!-- SZCZECIN -->
+			<div class="tab-panel" id="panel-szczecin">
+				<h2>Szczecin</h2>
+				<div class="info-panel">
+					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+						<img src="./assets/img/photo_contact_tab.jpg" alt="">
+						<span class="photo-icon"></span>
+					</a>
+					<div class="middle-col">
+						<span class="icon-wrap">
+							<span>Romana Dmowskiego 12/1, 80-264</span>
+						</span>
+						<div class="acc-hours">
+							<span class="acc-title">Ми відкриті:</span>
+							<span class="acc-shedule">09:00 - 21:00</span>
+							<span class="acc-week">Понеділок- Неділя</span>
+						</div>
+						<a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+					</div>
+					<div class="acc-route">
+						<span class="route-title">Як до нас дістатися:</span>
+
+						<div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
+						<div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+					</div>
+				</div>
+				<div class="map-panel">
+					<div class="map-fake visible" id="fake-szczecin-1">
+						<img src="./assets/img/image_map.jpg" alt="map">
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="contact-page">
+
+	<section class="left-question">
 		<div class="container">
-			<div class="form-preholder">
-				<div class="form-holder">
-					<div class="title-holder" data-aos="fade-up">
-						<h2 class="title">Our Contacts</h2>
-						<div class="text-holder">
-							<p>Request a free CALL BACK from your personal Happy Family Matchmaker in time you specify</p>
-						</div>
-					</div>
-					<form action="#" class="form">
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Your First Name">
-						</div>
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Your Last Name">
-						</div>
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Age">
-						</div>
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Country">
-						</div>
-						<div class="input-holder">
-							<input type="email" class="input" placeholder="E-mail">
-						</div>
-						<div class="input-holder">
-							<input type="tel" class="input" placeholder="Phone number">
-						</div>
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Profession ">
-						</div>
-						<div class="input-holder">
-							<input type="text" class="input" placeholder="Time to call you back">
-						</div>
-						<div class="input-holder textarea-holder">
-							<textarea class="input textarea" placeholder="Text message "></textarea>
-						</div>
-						<div class="checkbox-block">
-							<h3>How did you hear about Happy Family Matchmaking Agency?</h3>
-							<div class="input-holder">
-								<input type="radio" id="friends" name="zoom-radio" value="friends">
-								<label for="friends">From your friends or relatives</label>
-							</div>
-							<div class="input-holder">
-								<input type="radio" id="web" name="zoom-radio" value="web">
-								<label for="web">Found on the web</label>
-							</div>
-							<div class="input-holder">
-								<input type="radio" id="clients" name="zoom-radio" value="clients">
-								<label for="clients">From our clients</label>
-							</div>
-							<div class="input-holder">
-								<input type="radio" id="social" name="zoom-radio" value="social">
-								<label for="social">From social networks (FB, Instagram)</label>
-							</div>
-						</div>
-						<div class="input-holder textarea-holder">
-							<input id="personal-data" type="checkbox" name="personal-data" checked="checked">
-							<label for="personal-data">
-								You consent to the collection and processing of your personal data
-							</label>
-						</div>
-						<div class="btn-holder">
-							<button type="submit" class="btn btn-primary">Send</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="blog-content blog-content_sm"  style="background-image: url('./assets/img/certificates-bg.png')">
-		<div class="container">
-			<div class="row-tel">
-				<div class="col">
-					<div class="for-col">
-						<strong>For male client</strong>
-						<a href="tel:+4791774936">+479 177 49 36</a>
-						<div class="social-holder">
-							<span>Elena</span>
-							<ul class="contact-socials">
-								<li><a href="#"><i class="icomoon-whatsapp"></i></a></li>
-								<li><a href="#"><i class="icomoon-telegram"></i></a></li>
-								<li><a href="#"><i class="icomoon-viber"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="for-col">
-						<strong>For female clients</strong>
-						<a href="tel:+4791774936">+479 177 49 36</a>
-						<div class="social-holder">
-							<span>Natalia</span>
-							<ul class="contact-socials">
-								<li><a href="#"><i class="icomoon-whatsapp"></i></a></li>
-								<li><a href="#"><i class="icomoon-telegram"></i></a></li>
-								<li><a href="#"><i class="icomoon-viber"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="address">
-				<div class="title-holder"><strong class="title">Address</strong></div>
-				<div class="address-holder">
-					<address>Ukraine, Kharkiv Klochkovskaya 192A str., 2nd floor, office 203/4</address>
-					<ul class="contact-socials">
-						<li><a href="#"><i class="icomoon-youtube"></i></a></li>
-						<li><a href="#"><i class="icomoon-instagram"></i></a></li>
-						<li><a href="#"><i class="icomoon-facebook"></i></a></li>
-					</ul>
-				</div>
-			</div>
+			<h2>Залишилися питання? </h2>
+			<div class="subtitle">Ми з радістю допоможемо!</div>
+			<a href="javascript:;" data-fancybox data-src="#write-us" class="btn btn-primary">
+				Надіслати повідомлення
+			</a>
 		</div>
 	</section>
 </main>
+
+<div id="write-us" class="custom-modal write-us" style="display: none;">
+    <div class="popup-box">
+		<h2>Написати нам</h2>
+		<form action="#" class="modal-form">
+			<div class="input-row">
+				<div class="input-cell">
+					<label>Ваше ім’я<span class="red">*</span></label>
+					<input type="text" name="name" data-error="Поле обов’язкове">
+					<div class="error-message"></div>
+				</div>
+				<div class="input-cell">
+					<label>Ваш e-mail<span class="red">*</span></label>
+					<input type="email" name="email" data-error="Поле обов’язкове" data-error-email="Невірний формат">
+					<div class="error-message"></div>
+				</div>
+			</div>
+			<div class="input-group">
+				<label>Ваше сповіщення<span class="red">*</span></label>
+				<textarea name="message" data-error="Поле обов’язкове"></textarea>
+				<div class="error-message"></div>
+			</div>
+			<div class="form-footer">
+				<button type="submit" class="btn btn-primary">Відправити</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div id="success-modal" class="custom-modal success-modal" style="display: none;">
+    <h3>Дані успішно відправлені</h3>
+    <p>Дякуємо за ваше повідомлення.<br>Ми зв'яжемося з вами найближчим часом.</p>
+</div>
 @@include('templates/footer.html')

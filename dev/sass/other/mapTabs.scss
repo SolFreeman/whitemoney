@@ -130,14 +130,14 @@
 	font-weight: 500;
 }
 
-.accordion-trigger .icon-wrap {
+.icon-wrap {
 	display: flex;
 	align-items: flex-start;
 	gap: 10px;
 	position: relative;
 }
 
-.accordion-trigger .icon-wrap:before {
+.icon-wrap:before {
 	content: "";
 	width: 24px;
 	flex: 1 0 auto;
@@ -280,14 +280,14 @@
 	overflow: auto;
 }
 
-.acc-route .img-holder {
+.info-panel .img-holder {
 	display: block;
 	position: relative;
 	border: 10px;
 	overflow: hidden;
 }
 
-.acc-route .img-holder:before {
+.info-panel .img-holder:before {
 	position: absolute;
 	content: "";
 	right: 15px;

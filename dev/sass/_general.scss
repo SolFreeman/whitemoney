@@ -395,21 +395,14 @@ input:checked + label {
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-
-	min-width: 235px;
-
-	padding: 17px 35.5px;
-
-	font-weight: 600;
+	padding: 14px 22px;
+	font-weight: 500;
 	font-size: 18px;
 	font-family: $font-primary;
 	text-decoration: none;
-
-	border: 2px solid $secondary-color;
-	line-height: 1.64;
-
-	background-color: #fff;
-	border-radius: 0;
+	line-height: 1.5;
+	border-radius: 10px;
+	border: none;
 	transition:
 		color 0.15s ease-in-out,
 		background-color 0.15s ease-in-out,
@@ -426,16 +419,21 @@ input:checked + label {
 		color: #fff;
 		border-color: $secondary-color;
 	}
+
+	@include media(">=tablet") {
+		padding: 18px 37px;
+	}
 }
 
 .btn-primary {
 	color: $white;
-	background: $secondary-color;
+	background: #121212;
+	
 
 	&:hover {
-		color: $secondary-color;
-		background-color: transparent;
-		border-color: $secondary-color;
+		color: #38393A;
+		background-color: #fff;
+		box-shadow: 0px 0px 15px 0px #0000001A;
 	}
 }
 

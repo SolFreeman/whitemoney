@@ -1317,6 +1317,15 @@ Fancybox.bind(document.body, "[data-fancybox]", {
 });
 
 
+Fancybox.bind('[data-fancybox]', {
+    autoFocus: false,
+    trapFocus: true,
+    dragToClose: false, // для форм лучше отключать
+    showClass: "f-fadeIn",
+    hideClass: "f-fadeOut",
+});
+
+
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", init);
 } else {
@@ -1334,3 +1343,58 @@ window.addEventListener('scroll', function() {
         }
     }
 });
+
+/* validation */
+document.addEventListener('submit', function (e) {
+    const form = e.target.closest('.modal-form');
+    if (!form) return;
+
+    // 1. Зупиняємо відправку
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    let isValid = true;
+    const inputs = form.querySelectorAll('input[data-error], textarea[data-error]');
+
+    inputs.forEach(input => {
+        const parent = input.closest('.input-cell') || input.closest('.input-group');
+        const errorDiv = parent.querySelector('.error-message');
+        
+        parent.classList.remove('has-error');
+        if (errorDiv) errorDiv.textContent = '';
+
+        if (!input.value.trim()) {
+            isValid = false;
+            parent.classList.add('has-error');
+            if (errorDiv) errorDiv.textContent = input.getAttribute('data-error');
+        } else if (input.type === 'email') {
+            const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailReg.test(input.value.toLowerCase())) {
+                isValid = false;
+                parent.classList.add('has-error');
+                if (errorDiv) errorDiv.textContent = input.getAttribute('data-error-email');
+            }
+        }
+    });
+
+    // 2. Якщо валідація пройшла успішно
+    if (isValid) {
+        // Закриваємо поточне вікно (форму)
+        Fancybox.close();
+
+        // Очищуємо форму
+        form.reset();
+
+        // Відкриваємо вікно успіху через невелику затримку (щоб анімація була плавною)
+        setTimeout(() => {
+            Fancybox.show([{ 
+                src: "#success-modal", 
+                type: "inline" 
+            }], {
+                // Додаткові налаштування для вікна успіху
+                autoFocus: false,
+                dragToClose: false
+            });
+        }, 100);
+    }
+}, true);

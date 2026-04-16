@@ -149,12 +149,12 @@
         </div>
     </header>
 
-    <main class="wrapper contact-page">
+    <main class="wrapper contact-page-2">
+
 
         <section class="map-tabs">
             <div class="container">
-                <h1>Наші відділення у вашому місті</h1>
-
+                <h1>Наші відділення</h1>
                 <nav class="tabs" role="tablist">
                     <button class="tab-btn active" role="tab" data-tab="warsaw">Варшава</button>
                     <button class="tab-btn" role="tab" data-tab="gdansk">Гданськ</button>
@@ -166,32 +166,95 @@
 
                 <!-- WARSAW -->
                 <div class="tab-panel active" id="panel-warsaw">
-                    <h2>Warsaw </h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Marszałkowska 84/92, 00-514 Warszawa</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="warsaw-1">
+                                <span class="icon-wrap">
+								<span>Marszałkowska 84/92, 00-514 Warszawa</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Від ст. метро Centrum вийти на Marszałkowska, йти 2 хв на північ до буд. 84/92.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+									<img src="./assets/img/photo_contact_tab.jpg" alt="">
+									<span class="photo-icon"></span>
+								</a>
+                                        <a href="#" class="mobile-link-map">Дивитись на мапі</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
                         </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger" data-map="warsaw-2">
+                                <span class="icon-wrap">
+							<span>Złota 59, 00-120 Warszawa</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851842" class="acc-phone">+48 573 851 842</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 22:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">ТЦ Złote Tarasy, поряд з Варшавським центральним вокзалом, 1 поверх.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                        <a href="#" class="mobile-link-map">Дивитись на мапі</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger" data-map="warsaw-3">
+                                <span class="icon-wrap">
+							<span>Al. Jerozolimskie 44, 00-024 Warszawa</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851843" class="acc-phone">+48 573 851 843</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Fri: 09:00 – 20:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Ст. метро Centrum, вихід на Al. Jerozolimskie, 3 хв пішки на схід.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                        <a href="#" class="mobile-link-map">Дивитись на мапі</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
-                        </div>
                     </div>
                     <div class="map-panel">
                         <div class="map-fake visible" id="fake-warsaw-1">
+                            <img src="./assets/img/image_map.jpg" alt="map">
+                        </div>
+                        <div class="map-fake" id="fake-warsaw-2">
+                            <img src="./assets/img/image_map.jpg" alt="map">
+                        </div>
+                        <div class="map-fake" id="fake-warsaw-3">
                             <img src="./assets/img/image_map.jpg" alt="map">
                         </div>
                     </div>
@@ -199,32 +262,63 @@
 
                 <!-- GDANSK -->
                 <div class="tab-panel" id="panel-gdansk">
-                    <h2>Gdańsk </h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Romana Dmowskiego 12/1, 80-264</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="gdansk-1">
+                                <span class="icon-wrap">
+								<span>Romana Dmowskiego 12/1, 80-264 Gdańsk</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Від залізничної станції Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM...</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
                         </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
-
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger" data-map="gdansk-2">
+                                <span class="icon-wrap">
+								<span>Długa 46/47, 80-827 Gdańsk</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851844" class="acc-phone">+48 573 851 844</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 10:00 – 20:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Стара міська вул. Długa, пішохідна зона в центрі Гданська.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="map-panel">
                         <div class="map-fake visible" id="fake-gdansk-1">
+                            <img src="./assets/img/image_map.jpg" alt="map">
+                        </div>
+                        <div class="map-fake" id="fake-gdansk-2">
                             <img src="./assets/img/image_map.jpg" alt="map">
                         </div>
                     </div>
@@ -232,28 +326,31 @@
 
                 <!-- GDYNIA -->
                 <div class="tab-panel" id="panel-gdynia">
-                    <h2>Gdynia </h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Romana Dmowskiego 12/1, 80-264</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="gdynia-1">
+                                <span class="icon-wrap">
+								<span>Świętojańska 45, 81-391 Gdynia</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851845" class="acc-phone">+48 573 851 845</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">5 хв від ст. Gdynia Główna по Świętojańska на північ.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
-                        </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
-
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
                         </div>
                     </div>
                     <div class="map-panel">
@@ -265,28 +362,31 @@
 
                 <!-- ŁÓDŹ -->
                 <div class="tab-panel" id="panel-lodz">
-                    <h2>ŁÓDŹ</h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Romana Dmowskiego 12/1, 80-264</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="lodz-1">
+                                <span class="icon-wrap">
+								<span>Piotrkowska 86, 90-103 Łódź</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851846" class="acc-phone">+48 573 851 846</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Вул. Piotrkowska — головна пішохідна вул. Лодзі. Від Centrum зупинки трамваю.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
-                        </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
-
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
                         </div>
                     </div>
                     <div class="map-panel">
@@ -298,28 +398,31 @@
 
                 <!-- POZNAŃ -->
                 <div class="tab-panel" id="panel-poznan">
-                    <h2>Poznan</h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Romana Dmowskiego 12/1, 80-264</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="poznan-1">
+                                <span class="icon-wrap">
+								<span>Półwiejska 42, 61-888 Poznań</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851847" class="acc-phone">+48 573 851 847</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">ТЦ Stary Browar на Półwiejska. Від ст. Poznań Główny 10 хв пішки.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
-                        </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
-
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
                         </div>
                     </div>
                     <div class="map-panel">
@@ -331,28 +434,31 @@
 
                 <!-- SZCZECIN -->
                 <div class="tab-panel" id="panel-szczecin">
-                    <h2>Szczecin</h2>
                     <div class="info-panel">
-                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
-					</a>
-                        <div class="middle-col">
-                            <span class="icon-wrap">
-							<span>Romana Dmowskiego 12/1, 80-264</span>
-                            </span>
-                            <div class="acc-hours">
-                                <span class="acc-title">Ми відкриті:</span>
-                                <span class="acc-shedule">09:00 - 21:00</span>
-                                <span class="acc-week">Понеділок- Неділя</span>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger active" data-map="szczecin-1">
+                                <span class="icon-wrap">
+								<span>Bogurodzicy 1, 70-441 Szczecin</span>
+                                </span>
+                                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="accordion-body open">
+                                <div class="accordion-body-inner">
+                                    <a href="tel:+48573851848" class="acc-phone">+48 573 851 848</a>
+                                    <a href="#" class="recall">Замовити дзвінок</a>
+                                    <div class="acc-hours">Mon–Sun: 09:00 – 21:00</div>
+                                    <div class="acc-route">
+                                        <span class="route-title">Як до нас дістатися:</span>
+                                        <div class="route-text">Від ст. Szczecin Główny 7 хв пішки до центру міста.</div>
+                                        <a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
+										<img src="./assets/img/photo_contact_tab.jpg" alt="">
+										<span class="photo-icon"></span>
+									</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="tel:+48573851841" class="acc-phone">+48 573 851 841</a>
-                        </div>
-                        <div class="acc-route">
-                            <span class="route-title">Як до нас дістатися:</span>
-
-                            <div class="route-text"><strong>Від залізничної станції</strong> Gdańsk Wrzeszcz (SKM/PKM): вийти на Romana Dmowskiego, пішки близько 5‑7 хв прямо по вулиці до будинку № 12/1; орієнтир — зупинка SKM/PKM і великі житлові будівлі поруч.</div>
-                            <div class="route-text"><strong>На авто:</strong> їхати Romana Dmowskiego у бік Wrzeszcz, поруч є вільні парковки на вулиці та біля будівель; будівлю легко знайти за адресою.</div>
                         </div>
                     </div>
                     <div class="map-panel">
@@ -361,18 +467,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="left-question">
+                    <div class="container">
+                        <h2>Залишилися питання? Ми з радістю допоможемо!</h2>
+                        <a href="javascript:;" data-fancybox data-src="#write-us" class="btn btn-primary">
+						Надіслати повідомлення
+					</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="left-question">
-            <div class="container">
-                <h2>Залишилися питання? </h2>
-                <div class="subtitle">Ми з радістю допоможемо!</div>
-                <a href="javascript:;" data-fancybox data-src="#write-us" class="btn btn-primary">
-				Надіслати повідомлення
-			</a>
-            </div>
-        </section>
     </main>
 
     <div id="write-us" class="custom-modal write-us" style="display: none;">
