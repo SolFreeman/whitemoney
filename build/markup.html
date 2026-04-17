@@ -45,7 +45,7 @@
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__item">
-                                <a class="nav-link" href="../contacts.html">Контакти</a>
+                                <a class="nav-link" href="../contact.html">Контакти</a>
                             </li>
                             <li class="nav__item menu-item-has-children">
                                 <a class="nav-link " href="#">Послуги</a>
@@ -730,6 +730,70 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="write-us" class="custom-modal write-us" style="display: none;">
+            <div class="popup-box">
+                <h2>Написати нам</h2>
+                <form action="#" class="modal-form" data-success="#success-modal">
+                    <div class="input-row">
+                        <div class="input-cell">
+                            <label for="name">Ваше ім’я<span class="red">*</span></label>
+                            <input type="text" name="name" id="name" data-error="Поле обов’язкове">
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="input-cell">
+                            <label for="e-mail">Ваш e-mail<span class="red">*</span></label>
+                            <input type="email" name="email" id="e-mail" data-error="Поле обов’язкове" data-error-email="Невірний формат">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Ваше сповіщення<span class="red">*</span></label>
+                        <textarea name="message" id="message" data-error="Поле обов’язкове"></textarea>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Відправити</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="success-modal" class="custom-modal success-modal" style="display: none;">
+            <h3>Дані успішно відправлені</h3>
+            <p>Дякуємо за ваше повідомлення.<br>Ми зв'яжемося з вами найближчим часом.</p>
+        </div>
+
+        <div id="recall-me" class="custom-modal recall-me" style="display: none;">
+            <div class="popup-box">
+                <h2>Замовити дзвінок</h2>
+                <form action="#" class="modal-form" data-success="#success-modal2">
+                    <div class="input-row">
+                        <div class="input-cell">
+                            <label for="name2">Ваше ім’я<span class="red">*</span></label>
+                            <input type="text" name="name" id="name2" data-error="Поле обов’язкове">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-cell">
+                            <label for="user-phone">Телефон<span class="red">*</span></label>
+                            <input type="text" id="user-phone" class="phone-input" placeholder="+48 XXX XXX XXX" data-error="Введіть номер телефону">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    <p>Вкажіть свій номер телефону. Наш менеджер зв’яжеться з вами.</p>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Відправити</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="success-modal2" class="custom-modal success-modal" style="display: none;">
+            <h3>Ваш запит на зворотний  дзвінок успішно прийнято</h3>
+            <p>Наш менеджер зателефонує вам найближчим часом за номером, вказаним у заявці. </p>
         </div>
 
         <div id="cookie-banner" class="cookie-popup">
