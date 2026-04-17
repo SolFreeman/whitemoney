@@ -19,9 +19,8 @@
 			<div class="tab-panel active" id="panel-warsaw">
 				<h2>Warsaw </h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="Warsaw">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -52,9 +51,8 @@
 			<div class="tab-panel" id="panel-gdansk">
 				<h2>Gdańsk </h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="GDANSK">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -85,9 +83,8 @@
 			<div class="tab-panel" id="panel-gdynia">
 				<h2>Gdynia </h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="GDYNIA">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -118,9 +115,8 @@
 			<div class="tab-panel" id="panel-lodz">
 				<h2>ŁÓDŹ</h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="ŁÓDŹ">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -151,9 +147,8 @@
 			<div class="tab-panel" id="panel-poznan">
 				<h2>Poznan</h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="POZNAŃ">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -184,9 +179,8 @@
 			<div class="tab-panel" id="panel-szczecin">
 				<h2>Szczecin</h2>
 				<div class="info-panel">
-					<a href="./assets/img/photo_contact_tab.jpg" class="img-holder" data-fancybox="">
-						<img src="./assets/img/photo_contact_tab.jpg" alt="">
-						<span class="photo-icon"></span>
+					<a href="./assets/img/photo_contact_tab2.png" class="img-holder" data-fancybox="SZCZECIN">
+						<img src="./assets/img/photo_contact_tab2.png" alt="">
 					</a>
 					<div class="middle-col">
 						<span class="icon-wrap">
@@ -219,7 +213,7 @@
 		<div class="container">
 			<h2>Залишилися питання? </h2>
 			<div class="subtitle">Ми з радістю допоможемо!</div>
-			<a href="javascript:;" data-fancybox data-src="#write-us" class="btn btn-primary">
+			<a href="javascript:;" data-fancybox="modal" data-src="#write-us" class="btn btn-primary">
 				Надіслати повідомлення
 			</a>
 		</div>
@@ -229,22 +223,22 @@
 <div id="write-us" class="custom-modal write-us" style="display: none;">
     <div class="popup-box">
 		<h2>Написати нам</h2>
-		<form action="#" class="modal-form">
+		<form action="#" class="modal-form" data-success="#success-modal">
 			<div class="input-row">
 				<div class="input-cell">
-					<label>Ваше ім’я<span class="red">*</span></label>
-					<input type="text" name="name" data-error="Поле обов’язкове">
+					<label for="name">Ваше ім’я<span class="red">*</span></label>
+					<input type="text" name="name" id="name" data-error="Поле обов’язкове">
 					<div class="error-message"></div>
 				</div>
 				<div class="input-cell">
-					<label>Ваш e-mail<span class="red">*</span></label>
-					<input type="email" name="email" data-error="Поле обов’язкове" data-error-email="Невірний формат">
+					<label for="e-mail">Ваш e-mail<span class="red">*</span></label>
+					<input type="email" name="email" id="e-mail" data-error="Поле обов’язкове" data-error-email="Невірний формат">
 					<div class="error-message"></div>
 				</div>
 			</div>
 			<div class="input-group">
-				<label>Ваше сповіщення<span class="red">*</span></label>
-				<textarea name="message" data-error="Поле обов’язкове"></textarea>
+				<label for="message">Ваше сповіщення<span class="red">*</span></label>
+				<textarea name="message" id="message" data-error="Поле обов’язкове"></textarea>
 				<div class="error-message"></div>
 			</div>
 			<div class="form-footer">
