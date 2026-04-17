@@ -1312,12 +1312,27 @@ document.querySelectorAll(".faq-trigger").forEach((trigger) => {
 });
 
 
-Fancybox.bind(document.body, "[data-fancybox]", {
-	// настройки (если нужны)
+Fancybox.bind('[data-fancybox]', {
+	mainClass: "custom-gallery",
+    // Отключаем стандартную панель инструментов (кнопки сверху)
+    Toolbar: false,
+    
+    // Отключаем инфо-бар (счетчик картинок 1/5)
+    Infobar: false,
+    
+    // Отключаем клик по картинке для зума, если нужно просто модальное окно
+    Image: {
+        click: false,
+        wheel: false,
+    },
+
+    // Настройки анимации (уже обсуждали ранее)
+    showClass: "f-fadeIn",
+    hideClass: "f-fadeOut",
 });
 
 
-Fancybox.bind('[data-fancybox]', {
+Fancybox.bind('[data-fancybox="modal"]', {
     autoFocus: false,
     trapFocus: true,
     dragToClose: false, // для форм лучше отключать
@@ -1349,7 +1364,6 @@ document.addEventListener('submit', function (e) {
     const form = e.target.closest('.modal-form');
     if (!form) return;
 
-    // 1. Зупиняємо відправку
     e.preventDefault();
     e.stopImmediatePropagation();
 
@@ -1377,24 +1391,78 @@ document.addEventListener('submit', function (e) {
         }
     });
 
-    // 2. Якщо валідація пройшла успішно
     if (isValid) {
-        // Закриваємо поточне вікно (форму)
-        Fancybox.close();
+        // --- ВОТ ТУТ ГЛАВНОЕ ИЗМЕНЕНИЕ ---
+        
+        // Получаем ID попапа успеха из атрибута формы. 
+        // Если атрибут не задан, используем '#success-modal' по умолчанию
+        const successModalId = form.getAttribute('data-success') || '#success-modal';
 
-        // Очищуємо форму
+        Fancybox.close();
         form.reset();
 
-        // Відкриваємо вікно успіху через невелику затримку (щоб анімація була плавною)
         setTimeout(() => {
             Fancybox.show([{ 
-                src: "#success-modal", 
+                src: successModalId, // Используем динамический ID
                 type: "inline" 
             }], {
-                // Додаткові налаштування для вікна успіху
                 autoFocus: false,
-                dragToClose: false
+                dragToClose: false,
+                // Добавляем класс для стилизации, если нужно
+                mainClass: "fancybox-success-window"
             });
         }, 100);
     }
 }, true);
+
+document.addEventListener('input', function (e) {
+    if (e.target.classList.contains('phone-input')) {
+        let input = e.target;
+        let value = input.value;
+
+        // 1. Разрешаем '+' только в самом начале
+        // 2. Убираем всё, кроме цифр
+        // Результат: если плюс есть в начале, он остается, все остальное чистится от не-цифр
+        if (value.startsWith('+')) {
+            input.value = '+' + value.slice(1).replace(/\D/g, '');
+        } else {
+            input.value = value.replace(/\D/g, '');
+        }
+    }
+});
+
+
+function initCityPopup() {
+    // === СТРОКА ДЛЯ ИЗМЕНЕНИЯ ВРЕМЕНИ (в миллисекундах) ===
+    const popupDelay = 3000; 
+
+    const cityModal = document.getElementById('city-prompt');
+
+    if (cityModal) {
+        setTimeout(() => {
+            // Если вдруг какой-то Fancybox уже открыт, закрываем его перед показом нашего важного окна
+            if (Fancybox.getInstance()) {
+                Fancybox.close();
+            }
+
+            Fancybox.show([{ 
+                src: "#city-prompt", 
+                type: "inline" 
+            }], {
+                autoFocus: false,
+                dragToClose: false,
+                showClass: "f-fadeIn", // Используем стандартную быструю анимацию
+                hideClass: "f-fadeOut",
+                // Чтобы попап не "ломался" при закрытии и открытии снова
+                placeHolder: false 
+            });
+        }, popupDelay);
+    }
+}
+
+// Запуск (безопасный метод для любых браузеров)
+if (document.readyState === 'complete') {
+    initCityPopup();
+} else {
+    window.addEventListener('load', initCityPopup);
+}
