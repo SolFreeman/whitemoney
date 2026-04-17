@@ -303,7 +303,7 @@
                 </div>
                 <div class="col">
                     <ul class="footer-nav">
-                        <li><a href="#">Калькулятор валют</a></li>
+                        <li><a href="javascript:;" data-fancybox="modal" data-src="#calculator-exchange">Калькулятор валют</a></li>
                         <li><a href="#">FAQ (Поширені запитання)</a></li>
                     </ul>
                 </div>
@@ -369,9 +369,328 @@
     </div>
 </div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
-		<script async src="./assets/js/currency-widget.js"></script>
-		<script async src="./assets/js/global.js"></script>
+<div id="exchange-request" class="custom-modal exchange-request" style="display: none;">
+    <div class="popup-box">
+		<h2>Заявка на обмін валюти</h2>
+        <div class="two-col">
+            <div class="conv">
+                <div class="conv__card">
+                    <p class="conv__label">Віддаєте</p>
+                    <div class="conv__input-group">
+                        <input type="number" class="conv__input" id="from-amount" value="1000">
+                        <div class="custom-select" id="from-cur-custom">
+                            <div class="select-trigger">
+                                <span class="flag">
+									<img src="./assets/img/icon_PLN.svg" alt="">
+								</span>
+                                <span class="code">PLN</span>
+                            </div>
+                            <div class="select-options">
+                                <div class="option" data-value="EUR">
+                                    <span class="flag">
+										<img src="./assets/img/icon_EUR.svg" alt="">
+									</span>
+                                    EUR
+                                </div>
+                                <div class="option" data-value="USD">
+                                    <span class="flag">
+										<img src="./assets/img/icon_USD.svg" alt="">
+									</span>
+                                    USD
+                                </div>
+                                <div class="option" data-value="GBP">
+                                    <span class="flag">
+										<img src="./assets/img/icon_GBR.svg" alt="">
+									</span>
+                                    GBP
+                                </div>
+                                <div class="option" data-value="CHF">
+                                    <span class="flag">
+										<img src="./assets/img/icon_CHF.svg" alt="">
+									</span>
+                                    CHF
+                                </div>
+                                <div class="option" data-value="CAD">
+                                    <span class="flag">
+										<img src="./assets/img/icon_CAD.svg" alt="">
+									</span>
+                                    CAD
+                                </div>
+                                <div class="option" data-value="PLN">
+                                    <span class="flag">
+										<img src="./assets/img/icon_PLN.svg" alt="">
+									</span>
+                                    PLN
+                                </div>
+                            </div>
+                            <input type="hidden" id="from-cur" value="EUR">
+                        </div>
+                    </div>
+
+                    <div class="conv__swap-wrap">
+                        <div class="conv__swap-line"></div>
+                        <button class="conv__swap-btn" id="swap-btn"></button>
+                    </div>
+
+                    <p class="conv__label">Отримуєте</p>
+                    <div class="conv__input-group">
+                        <input type="number" class="conv__input conv__input--readonly" id="to-amount" readonly>
+                        <div class="custom-select" id="to-cur-custom">
+                            <div class="select-trigger">
+                                <span class="flag">
+									<img src="./assets/img/icon_EUR.svg" alt="">
+								</span>
+                                <span class="code">EUR</span>
+                            </div>
+                            <div class="select-options">
+                                <div class="option" data-value="EUR">
+                                    <span class="flag">
+										<img src="./assets/img/icon_EUR.svg" alt="">
+									</span>
+                                    EUR
+                                </div>
+                                <div class="option" data-value="USD">
+                                    <span class="flag">
+										<img src="./assets/img/icon_USD.svg" alt="">
+									</span>
+                                    USD
+                                </div>
+                                <div class="option" data-value="GBP">
+                                    <span class="flag">
+										<img src="./assets/img/icon_GBR.svg" alt="">
+									</span>
+                                    GBP
+                                </div>
+                                <div class="option" data-value="CHF">
+                                    <span class="flag">
+										<img src="./assets/img/icon_CHF.svg" alt="">
+									</span>
+                                    CHF
+                                </div>
+                                <div class="option" data-value="CAD">
+                                    <span class="flag">
+										<img src="./assets/img/icon_CAD.svg" alt="">
+									</span>
+                                    CAD
+                                </div>
+                                <div class="option" data-value="PLN">
+                                    <span class="flag">
+										<img src="./assets/img/icon_PLN.svg" alt="">
+									</span>
+                                    PLN
+                                </div>
+                            </div>
+                            <input type="hidden" id="to-cur" value="PLN">
+                        </div>
+                    </div>
+
+                    <div class="conv__rate-badge">
+                        <span class="conv__rate-badge-label" id="rate-label">Курс <span class="conv__rate-badge-value" id="rate-val-display">—</span> (Купівля)</span>
+                        <span class="conv__spread-label"> Спред: <span id="spread-val">0.00</span></span>
+                    </div>
+                    <p class="conv__note">* Оптовий обмін від 4000 злотих</p>
+                </div>
+            </div>
+            <form action="#" class="modal-form" data-success="#success-modal">
+                <div class="input-row">
+                    <div class="input-cell">
+                        <label for="name2">Ваше ім’я<span class="red">*</span></label>
+                        <input type="text" name="name" id="name2" data-error="Поле обов’язкове">
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-cell">
+                        <label for="user-phone">Телефон<span class="red">*</span></label>
+                        <input type="text" id="user-phone" class="phone-input" placeholder="+48 XXX XXX XXX" data-error="Введіть номер телефону">
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary">Оформити заявку</button>
+                    <p>Натискаючи кнопку «Оформити заявку», ви погоджуєтеся з <a href="#">Правилами сервісу</a> та <a href="#">Політикою конфіденційності</a>.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <div id="success-modal" class="custom-modal success-modal" style="display: none;">
+        <h3>Дані успішно відправлені</h3>
+        <p>Дякуємо за ваше повідомлення.<br>Ми зв'яжемося з вами найближчим часом.</p>
+    </div>
+
+    <div id="calculator-exchange" class="custom-modal calculator-exchange" style="display: none;">
+        <div class="popup-box">
+            <h2>Калькулятор обміну</h2>
+            <div class="conv">
+                <div class="conv__card">
+                    <p class="conv__label">Віддаєте</p>
+                    <div class="conv__input-group">
+                        <input type="number" class="conv__input" id="from-amount" value="1000">
+                        <div class="custom-select" id="from-cur-custom">
+                            <div class="select-trigger">
+                                <span class="flag">
+								<img src="./assets/img/icon_PLN.svg" alt="">
+							</span>
+                                <span class="code">PLN</span>
+                            </div>
+                            <div class="select-options">
+                                <div class="option" data-value="EUR">
+                                    <span class="flag">
+									<img src="./assets/img/icon_EUR.svg" alt="">
+								</span>
+                                    EUR
+                                </div>
+                                <div class="option" data-value="USD">
+                                    <span class="flag">
+									<img src="./assets/img/icon_USD.svg" alt="">
+								</span>
+                                    USD
+                                </div>
+                                <div class="option" data-value="GBP">
+                                    <span class="flag">
+									<img src="./assets/img/icon_GBR.svg" alt="">
+								</span>
+                                    GBP
+                                </div>
+                                <div class="option" data-value="CHF">
+                                    <span class="flag">
+									<img src="./assets/img/icon_CHF.svg" alt="">
+								</span>
+                                    CHF
+                                </div>
+                                <div class="option" data-value="CAD">
+                                    <span class="flag">
+									<img src="./assets/img/icon_CAD.svg" alt="">
+								</span>
+                                    CAD
+                                </div>
+                                <div class="option" data-value="PLN">
+                                    <span class="flag">
+									<img src="./assets/img/icon_PLN.svg" alt="">
+								</span>
+                                    PLN
+                                </div>
+                            </div>
+                            <input type="hidden" id="from-cur" value="EUR">
+                        </div>
+                    </div>
+
+                    <div class="conv__swap-wrap">
+                        <div class="conv__swap-line"></div>
+                        <button class="conv__swap-btn" id="swap-btn"></button>
+                    </div>
+
+                    <p class="conv__label">Отримуєте</p>
+                    <div class="conv__input-group">
+                        <input type="number" class="conv__input conv__input--readonly" id="to-amount" readonly>
+                        <div class="custom-select" id="to-cur-custom">
+                            <div class="select-trigger">
+                                <span class="flag">
+								<img src="./assets/img/icon_EUR.svg" alt="">
+							</span>
+                                <span class="code">EUR</span>
+                            </div>
+                            <div class="select-options">
+                                <div class="option" data-value="EUR">
+                                    <span class="flag">
+									<img src="./assets/img/icon_EUR.svg" alt="">
+								</span>
+                                    EUR
+                                </div>
+                                <div class="option" data-value="USD">
+                                    <span class="flag">
+									<img src="./assets/img/icon_USD.svg" alt="">
+								</span>
+                                    USD
+                                </div>
+                                <div class="option" data-value="GBP">
+                                    <span class="flag">
+									<img src="./assets/img/icon_GBR.svg" alt="">
+								</span>
+                                    GBP
+                                </div>
+                                <div class="option" data-value="CHF">
+                                    <span class="flag">
+									<img src="./assets/img/icon_CHF.svg" alt="">
+								</span>
+                                    CHF
+                                </div>
+                                <div class="option" data-value="CAD">
+                                    <span class="flag">
+									<img src="./assets/img/icon_CAD.svg" alt="">
+								</span>
+                                    CAD
+                                </div>
+                                <div class="option" data-value="PLN">
+                                    <span class="flag">
+									<img src="./assets/img/icon_PLN.svg" alt="">
+								</span>
+                                    PLN
+                                </div>
+                            </div>
+                            <input type="hidden" id="to-cur" value="PLN">
+                        </div>
+                    </div>
+
+                    <div class="conv__rate-badge">
+                        <span class="conv__rate-badge-label" id="rate-label">Курс <span class="conv__rate-badge-value" id="rate-val-display">—</span> (Купівля)</span>
+
+                        <span class="conv__spread-label"> Спред: <span id="spread-val">0.00</span></span>
+                    </div>
+                    <button class="conv__order-btn" data-fancybox="modal" data-src="#exchange-request">Замовити обмін</button>
+                    <p class="conv__note">* Оптовий обмін від 4000 злотих</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-banner" class="cookie-popup">
+        <div class="cookie-popup__content">
+            <h3>Налаштування файлів cookie</h3>
+            <p>Ми використовуємо файли cookie, щоб покращити роботу сайту та ваш досвід користування. Ви можете керувати налаштуваннями cookie та обрати, які з них дозволити.</p>
+            <div class="cookies-list">
+                <div class="item">
+                    <div class="title-box">
+                        <h5>Обов’язкові файли cookie</h5>
+                        <span class="blue-text">завжди активні</span>
+                    </div>
+                    <p>Ці файли cookie необхідні для правильної роботи сайту та не можуть бути вимкнені. Вони забезпечують: коректну навігацію сайтом; безпеку та стабільність роботи; збереження вибраного міста або мови.</p>
+                </div>
+                <div class="item">
+                    <div class="title-box">
+                        <h5>Аналітичні файли cookie</h5>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p>Допомагають нам зрозуміти, як користувачі взаємодіють із сайтом, щоб покращувати його структуру та зручність. Використовуються для: аналізу відвідуванності сторінок; покращення користувацького досвіду; виявлення технічних помилок Google Analytics.</p>
+                </div>
+                <div class="item">
+                    <div class="title-box">
+                        <h5>Маркетингові файли cookie</h5>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <p>Використовуються для показу релевантного контенту та рекламних матеріалів. Можуть застосовуватися для: відображення персоналізованих пропозицій; аналізу ефективності рекламних кампаній. </p>
+                </div>
+            </div>
+            <div class="cookie-popup__actions">
+                <button id="cookie-accept-all" class="btn btn-primary">Підтвердити вибір</button>
+                <button id="cookie-reject-all" class="btn btn-secondary">Відхилити все</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+    <script async src="./assets/js/currency-widget.js"></script>
+    <script async src="./assets/js/global.js"></script>
 </body>
+
 </html>

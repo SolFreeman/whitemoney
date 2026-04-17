@@ -27,7 +27,8 @@ class CurrencyWidget {
   };
 
   // ─── Constructor ─────────────────────────────────────────────────────────
-  constructor({ fetchRates } = {}) {
+  constructor({ fetchRates, root = document } = {}) {
+    this.root       = root;  // теперь по умолчанию document, а не undefined
     this.rates      = CurrencyWidget.DEFAULT_RATES;
     this.fetchRates = fetchRates ?? null;
     this.extraOpen  = false;
@@ -39,18 +40,19 @@ class CurrencyWidget {
 
   // ─── Cache DOM references ─────────────────────────────────────────────────
   _bindElements() {
+    const q = (id) => this.root.querySelector(`#${id}`);
     this.el = {
-      fromAmount:    document.getElementById('from-amount'),
-      toAmount:      document.getElementById('to-amount'),
-      fromCur:       document.getElementById('from-cur'),
-      toCur:         document.getElementById('to-cur'),
-      rateLabel:     document.getElementById('rate-label'),
-      rateVal:       document.getElementById('rate-val-display'),
-      mainRows:      document.getElementById('main-rows'),
-      labelMore:     document.getElementById('more-label'),
-      labelCollapse: document.getElementById('collapse-label'),
-      tabs:          document.querySelectorAll('.cx__tab'),
-      panels:        document.querySelectorAll('.cx__panel'),
+        fromAmount: q('from-amount'),
+        toAmount:   q('to-amount'),
+        fromCur:    q('from-cur'),
+        toCur:      q('to-cur'),
+        rateLabel:  q('rate-label'),
+        rateVal:    q('rate-val-display'),
+        mainRows:   q('main-rows'),
+        labelMore:  q('more-label'),
+        labelCollapse: q('collapse-label'),
+        tabs:       this.root.querySelectorAll('.cx__tab'),
+        panels:     this.root.querySelectorAll('.cx__panel'),
     };
   }
 
@@ -62,7 +64,7 @@ class CurrencyWidget {
 
    
 
-    document.getElementById('more-btn')
+    this.root.querySelector('#more-btn')
       ?.addEventListener('click', () => this.toggleMore());
 
     this.el.tabs.forEach((tab, i) =>
@@ -140,7 +142,7 @@ class CurrencyWidget {
       }
 
       // 4. Обновляем значение спреда
-      const spreadDisplay = document.getElementById('spread-val');
+      const spreadDisplay = this.root.querySelector('#spread-val');
       if (spreadDisplay) {
           spreadDisplay.textContent = spread.toFixed(2);
       }
@@ -202,16 +204,15 @@ if (document.readyState === 'loading') {
   initWidget();
 }
 
-function initStaticCustomSelects() {
-    // 1. Очищаем старые обработчики (на случай если сборщик вызвал функцию дважды)
-    const swapBtn = document.getElementById('swap-btn');
-    
+function initStaticCustomSelects(root = document) {
+    const swapBtn = root.querySelector('#swap-btn'); // ← было getElementById
+
     const closeAll = () => {
-        document.querySelectorAll('.custom-select').forEach(s => s.classList.remove('active'));
+        root.querySelectorAll('.custom-select').forEach(s => s.classList.remove('active')); // ← root
     };
 
-    const selects = document.querySelectorAll('.custom-select');
-    if (selects.length === 0) return; // Если элементов нет, выходим
+    const selects = root.querySelectorAll('.custom-select'); // ← root
+    if (selects.length === 0) return;
 
     selects.forEach(customSel => {
         const trigger = customSel.querySelector('.select-trigger');
@@ -220,7 +221,6 @@ function initStaticCustomSelects() {
 
         if (!trigger || !hiddenInput) return;
 
-        // Удаляем старые слушатели (через клон), чтобы избежать дублей при перезагрузке сборщиком
         const newTrigger = trigger.cloneNode(true);
         trigger.parentNode.replaceChild(newTrigger, trigger);
 
@@ -232,8 +232,7 @@ function initStaticCustomSelects() {
         });
 
         options.forEach(opt => {
-            // Удаляем старые клики, если они были
-            opt.onclick = null; 
+            opt.onclick = null;
             opt.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const val = opt.getAttribute('data-value');
@@ -241,35 +240,31 @@ function initStaticCustomSelects() {
 
                 hiddenInput.value = val;
                 newTrigger.querySelector('.code').textContent = val;
-                
                 if (flagImg) {
                     newTrigger.querySelector('.flag img').src = flagImg.src;
                 }
 
                 closeAll();
-                // Важно: пузырьковое событие для основного виджета
                 hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
             });
         });
     });
 
-    // Обновляем кнопку Swap
     if (swapBtn) {
         const newSwap = swapBtn.cloneNode(true);
         swapBtn.parentNode.replaceChild(newSwap, swapBtn);
-        
+
         newSwap.addEventListener('click', (e) => {
             e.preventDefault();
-            const fromInput = document.getElementById('from-cur');
-            const toInput = document.getElementById('to-cur');
-            
+            const fromInput = root.querySelector('#from-cur'); // ← root
+            const toInput   = root.querySelector('#to-cur');   // ← root
+
             if (!fromInput || !toInput) return;
 
             const tempVal = fromInput.value;
             fromInput.value = toInput.value;
             toInput.value = tempVal;
 
-            // Синхронизируем визуал
             [fromInput, toInput].forEach(input => {
                 const container = input.closest('.custom-select');
                 const val = input.value;
