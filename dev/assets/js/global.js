@@ -1183,6 +1183,29 @@ function initAccordeonMenu() {
     });
 }
 
+function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    // Показываем только если еще не отвечали
+    if (!localStorage.getItem('cookie_choice')) {
+        banner.classList.add('is-visible');
+    }
+
+    banner.addEventListener('click', (e) => {
+        if (e.target.id === 'cookie-accept-all' || e.target.id === 'cookie-reject-all') {
+            const choice = e.target.id === 'cookie-accept-all' ? 'accepted' : 'rejected';
+            localStorage.setItem('cookie_choice', choice);
+            banner.classList.remove('is-visible');
+            
+            // Здесь можно вызвать инициализацию Google Analytics, если приняли
+            if (choice === 'accepted') {
+                console.log('Запуск метрик...');
+            }
+        }
+    });
+}
+
 
 
 
@@ -1200,6 +1223,8 @@ function init() {
 	svgTabs();
 	smoothScrollTo('.thetop', 3000);
 	initAccordeonMenu();
+
+	initCookieBanner();
 
 	// hero slider
 	new Swiper(".hero-slider", {
@@ -1332,13 +1357,43 @@ Fancybox.bind('[data-fancybox]', {
 });
 
 
-Fancybox.bind('[data-fancybox="modal"]', {
+// Общий конфиг — используется и для bind, и для show
+const fancyboxConfig = {
     autoFocus: false,
     trapFocus: true,
-    dragToClose: false, // для форм лучше отключать
+    dragToClose: false,
     showClass: "f-fadeIn",
     hideClass: "f-fadeOut",
-});
+	groupAll: false, 
+    groupAttr: false,
+	
+    on: {
+        reveal: (fancybox, slide) => {
+            const modalRoot = slide.el;
+
+            // Инициализация конвертера
+            if (modalRoot.querySelector('#from-cur')) {
+                initStaticCustomSelects(modalRoot);
+                window.currencyWidget = new CurrencyWidget({ root: modalRoot });
+            }
+
+            // Кнопки открытия вложенных модалок — биндим только один раз
+            modalRoot.querySelectorAll('[data-fancybox][data-src]:not([data-fb-bound])').forEach(btn => {
+                btn.setAttribute('data-fb-bound', '1');
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    Fancybox.show([{ 
+                        src: btn.getAttribute('data-src'), 
+                        type: 'inline' 
+                    }], fancyboxConfig); // ← передаём тот же конфиг
+                });
+            });
+        },
+    },
+};
+
+Fancybox.bind('[data-fancybox="modal"]', fancyboxConfig);
 
 
 if (document.readyState === "loading") {
